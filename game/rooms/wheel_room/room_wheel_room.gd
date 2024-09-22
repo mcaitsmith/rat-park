@@ -13,6 +13,7 @@ func _on_room_entered() -> void:
 	#C.Zippy.play_animation("walk_wheel")
 	R.get_prop("Wheel").find_child("AnimationPlayer").play("wheelmove")
 	R.get_prop("WheelFront").find_child("AnimationPlayer").play("wheelmove")
+	A.wheelrattle.loop = true
 	E.am.play_sound_cue("wheelrattle")
 	C.Zippy.face_left()
 	if E.used_highlighter:
@@ -39,6 +40,7 @@ func _on_room_transition_finished() -> void:
 # have been removed from the $Characters node.
 func _on_room_exited() -> void:
 	E.am.stop("wheelrattle")
+	A.wheelrattle.stop()
 	#pass
 
 
