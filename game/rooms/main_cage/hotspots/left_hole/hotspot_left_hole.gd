@@ -12,8 +12,9 @@ func _on_click() -> void:
 	#E.command_fallback()
 	# For example, you can make the player character walk to this hotspot, gaze at it, and then say
 	# something:
-	await C.player.walk_to_clicked()
-	await C.player.face_clicked()
+	#await C.player.walk_to_clicked()
+	#await C.player.face_clicked()
+	await self.check_hole()
 
 func _on_double_click() -> void:
 	# Replace the call to E.command_fallback() with your code.

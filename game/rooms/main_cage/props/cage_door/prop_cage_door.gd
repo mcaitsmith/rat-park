@@ -39,17 +39,9 @@ func _on_middle_click() -> void:
 # When the node is clicked and there is an inventory item selected
 func _on_item_used(_item: PopochiuInventoryItem) -> void:
 	# Replace the call to E.command_fallback() to implement your code.
-	#E.command_fallback()
+	E.command_fallback()
 	# For example, you can make the player character say something when the Key item is used in this
 	# prop. Note that you have to change the name of the `_item` parameter to `item`.
-	if _item == I.GlyphT and not E.remove_screw:
-		I.GlyphT.remove()
-		R.get_prop("Screw").hide()
-		I.Screw.add()
-		E.remove_screw = true
-		if not E.move_scraps:
-			await C.player.say("I got the screw removed. Still need to find a way to get humans to open the door though.")
-			await C.player.say("They seem to only do it when a rat takes a long nap.")
 
 # When an inventory item linked to this Prop (link_to_item) is removed from
 # the inventory (i.e. when it is used in something that makes use of the object).
