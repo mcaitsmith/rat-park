@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=3 uid="uid://755ua77dyf7w"]
+
+[ext_resource type="Theme" uid="uid://dde2bq0jyshn5" path="res://game/gui/resources/gui_theme.tres" id="1_74hjn"]
+[ext_resource type="Script" path="res://game/gui/components/settings_popup/9_verb_settings_popup_custom.gd" id="2_qj72s"]
+[ext_resource type="StyleBox" uid="uid://d3m5ubtlpcf27" path="res://game/gui/components/popups/popochiu_popup_panel_container.tres" id="3_lqpkb"]
+[ext_resource type="Texture2D" uid="uid://2h8shspkkgr2" path="res://game/gui/resources/images/close.png" id="4_q5wcq"]
+[ext_resource type="Texture2D" uid="uid://dbk787nuc0y8x" path="res://game/gui/resources/images/close_highlight.png" id="5_duec3"]
+[ext_resource type="PackedScene" uid="uid://diul4t3kf0b25" path="res://game/gui/components/sound_volumes/sound_volumes.tscn" id="6_wnfk3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4bri7"]
+
+[node name="9VerbSettingsPopup" type="Control" groups=["popochiu_gui_popup"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_74hjn")
+script = ExtResource("2_qj72s")
+script_name = &"9VerbSettingsPopup"
+title = "Settings"
+
+[node name="Overlay" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4bri7")
+
+[node name="PanelContainer" type="PanelContainer" parent="Overlay"]
+custom_minimum_size = Vector2(264, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("3_lqpkb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/PanelContainer"]
+layout_mode = 2
+
+[node name="HeaderContainer" type="HBoxContainer" parent="Overlay/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Overlay/PanelContainer/VBoxContainer/HeaderContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close" type="TextureButton" parent="Overlay/PanelContainer/VBoxContainer/HeaderContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("4_q5wcq")
+texture_pressed = ExtResource("5_duec3")
+texture_hover = ExtResource("5_duec3")
+
+[node name="OptionsContainer" type="HBoxContainer" parent="Overlay/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/PanelContainer/VBoxContainer/OptionsContainer"]
+layout_mode = 2
+
+[node name="SoundVolumes" parent="Overlay/PanelContainer/VBoxContainer/OptionsContainer/VBoxContainer" instance=ExtResource("6_wnfk3")]
+layout_mode = 2
+
+[node name="ClassicSentence" type="CheckButton" parent="Overlay/PanelContainer/VBoxContainer/OptionsContainer/VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+tooltip_text = "Show hover text centered"
+text = "Classic sentence"
+
+[node name="Buttons" type="VBoxContainer" parent="Overlay/PanelContainer/VBoxContainer/OptionsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+
+[node name="Save" type="Button" parent="Overlay/PanelContainer/VBoxContainer/OptionsContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save"
+
+[node name="Load" type="Button" parent="Overlay/PanelContainer/VBoxContainer/OptionsContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load"
+
+[node name="History" type="Button" parent="Overlay/PanelContainer/VBoxContainer/OptionsContainer/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "History"
+
+[node name="Quit" type="Button" parent="Overlay/PanelContainer/VBoxContainer/OptionsContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit game"
+
+[node name="Cancel" type="Button" parent="Overlay/PanelContainer/VBoxContainer/OptionsContainer/Buttons"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume game"
+
+[node name="FooterContainer" type="HBoxContainer" parent="Overlay/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 10
+alignment = 2
+
+[node name="Ok" type="Button" parent="Overlay/PanelContainer/VBoxContainer/FooterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "ok"

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cg1bf5bnromio"]
+
+[ext_resource type="Script" path="res://game/inventory_items/glyph_w/inventory_item_glyph_w_state.gd" id="1_yogjf"]
+
+[resource]
+resource_name = "GlyphW"
+script = ExtResource("1_yogjf")
+script_name = "GlyphW"
+scene = "res://game/inventory_items/glyph_w/inventory_item_glyph_w.tscn"

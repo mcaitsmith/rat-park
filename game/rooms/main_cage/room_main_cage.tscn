@@ -1,0 +1,137 @@
+[gd_scene load_steps=27 format=3 uid="uid://dep8mvrtgaywo"]
+
+[ext_resource type="Script" path="res://game/rooms/main_cage/room_main_cage.gd" id="1_fclbb"]
+[ext_resource type="PackedScene" uid="uid://b4nmge1fi5x4y" path="res://game/rooms/main_cage/props/background/prop_background.tscn" id="2_domg6"]
+[ext_resource type="PackedScene" uid="uid://bmduv35w45fbc" path="res://game/rooms/main_cage/walkable_areas/floor/walkable_area_floor.tscn" id="2_ww3rc"]
+[ext_resource type="PackedScene" uid="uid://b1ojlhy3kvl6" path="res://game/characters/tibs/character_tibs.tscn" id="4_ca4ik"]
+[ext_resource type="Texture2D" uid="uid://c70xa7r7ubclx" path="res://game/rooms/main_cage/props/background/BottleRoom_Back_0.png" id="4_isxv6"]
+[ext_resource type="PackedScene" uid="uid://dy63cpx2aavhq" path="res://game/rooms/main_cage/props/bottle/prop_bottle.tscn" id="5_0kjp0"]
+[ext_resource type="Texture2D" uid="uid://dqx48i5u63dn8" path="res://game/rooms/main_cage/props/back_wall/BottleRoom_BackWall_0.png" id="6_spjgx"]
+[ext_resource type="Texture2D" uid="uid://f14yq3733rb3" path="res://game/rooms/main_cage/props/cage_door/BottleRoom_CageClosed_0.png" id="8_gmeu5"]
+[ext_resource type="PackedScene" uid="uid://dbjrwm8ulp5qn" path="res://game/rooms/main_cage/hotspots/left_hole/hotspot_left_hole.tscn" id="9_5xt7n"]
+[ext_resource type="Texture2D" uid="uid://bh7to8a0cmnoi" path="res://game/rooms/main_cage/props/bottle/BottleRoom_WaterBottle_0.png" id="10_bci65"]
+[ext_resource type="PackedScene" uid="uid://b0268qje765io" path="res://game/rooms/main_cage/props/screw/prop_screw.tscn" id="11_myuk2"]
+[ext_resource type="PackedScene" uid="uid://gqjqe6a8t8gx" path="res://game/characters/rat_1/character_rat_1.tscn" id="11_x7v8e"]
+[ext_resource type="Texture2D" uid="uid://b7dpk7j0tukgs" path="res://game/rooms/main_cage/props/screw/BottleRoom_LooseScrew_0.png" id="12_kx7hs"]
+[ext_resource type="PackedScene" uid="uid://d2myapml01i8l" path="res://game/rooms/main_cage/props/back_wall/prop_back_wall.tscn" id="13_fdhxr"]
+[ext_resource type="PackedScene" uid="uid://caoc8n8rbkem0" path="res://game/rooms/main_cage/hotspots/right_hole/hotspot_right_hole.tscn" id="14_rnh3w"]
+[ext_resource type="PackedScene" uid="uid://dvb1bv8ak86vu" path="res://game/rooms/main_cage/markers/pickup_point/marker_pickup_point.tscn" id="15_6v2c2"]
+[ext_resource type="PackedScene" uid="uid://b2436xlavtedu" path="res://game/rooms/main_cage/props/cage_door/prop_cage_door.tscn" id="15_r7wu0"]
+[ext_resource type="PackedScene" uid="uid://2wu5icc7gsly" path="res://game/rooms/main_cage/markers/above_cage/marker_above_cage.tscn" id="16_a2bdg"]
+[ext_resource type="PackedScene" uid="uid://po1v15j4pbyf" path="res://game/rooms/main_cage/markers/scraps_pos/marker_scraps_pos.tscn" id="17_kee2n"]
+[ext_resource type="PackedScene" uid="uid://boik6j0he0hj4" path="res://game/characters/hand/character_hand.tscn" id="17_wguo1"]
+[ext_resource type="PackedScene" uid="uid://dxt0yxtur8d01" path="res://game/rooms/main_cage/markers/tibs_pos/marker_tibs_pos.tscn" id="18_kx578"]
+[ext_resource type="PackedScene" uid="uid://ewmvaosqvg38" path="res://game/rooms/main_cage/markers/new_rat_spawn/marker_new_rat_spawn.tscn" id="19_iu7oe"]
+[ext_resource type="PackedScene" uid="uid://e6lcxriauerx" path="res://game/characters/rat_2/character_rat_2.tscn" id="20_af2nx"]
+[ext_resource type="PackedScene" uid="uid://fpictorylvay" path="res://game/rooms/main_cage/markers/new_rat_pos/marker_new_rat_pos.tscn" id="20_pen45"]
+[ext_resource type="PackedScene" uid="uid://cequ0j3kuskcf" path="res://game/rooms/main_cage/markers/cage_exit/marker_cage_exit.tscn" id="21_e68mm"]
+[ext_resource type="PackedScene" uid="uid://c00w7og8sngb5" path="res://game/characters/scraps/character_scraps.tscn" id="23_o46yi"]
+
+[node name="RoomMainCage" type="Node2D"]
+script = ExtResource("1_fclbb")
+script_name = "MainCage"
+width = 480
+height = 200
+limit_left = -80.0
+limit_right = 400.0
+popochiu_placeholder = null
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Floor" parent="WalkableAreas" instance=ExtResource("2_ww3rc")]
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Background" parent="Props" instance=ExtResource("2_domg6")]
+position = Vector2(160, 100)
+texture = ExtResource("4_isxv6")
+baseline = -102
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="BackWall" parent="Props" instance=ExtResource("13_fdhxr")]
+position = Vector2(160, 100)
+texture = ExtResource("6_spjgx")
+baseline = -105
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="CageDoor" parent="Props" instance=ExtResource("15_r7wu0")]
+position = Vector2(160, 100)
+texture = ExtResource("8_gmeu5")
+baseline = -104
+interaction_polygon = PackedVector2Array(-80, -101, 74, -99, 75, -53, -79, -54)
+
+[node name="Bottle" parent="Props" instance=ExtResource("5_0kjp0")]
+position = Vector2(160, 100)
+texture = ExtResource("10_bci65")
+baseline = -100
+walk_to_point = Vector2(-127.754, 4.28706)
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Screw" parent="Props" instance=ExtResource("11_myuk2")]
+position = Vector2(160, 100)
+texture = ExtResource("12_kx7hs")
+baseline = -102
+walk_to_point = Vector2(65.1633, 0.428711)
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="LeftHole" parent="Hotspots" instance=ExtResource("9_5xt7n")]
+position = Vector2(-48, 92)
+baseline = -36
+walk_to_point = Vector2(40.2983, 32.5816)
+interaction_polygon = PackedVector2Array(-10, -36, 2, -46, 11, -35, 12, -4, 3, 8, -7, 3)
+interaction_polygon_position = Vector2(-1, 18)
+
+[node name="RightHole" parent="Hotspots" instance=ExtResource("14_rnh3w")]
+position = Vector2(368, 91)
+baseline = -37
+walk_to_point = Vector2(-37.2975, 35.1539)
+interaction_polygon = PackedVector2Array(-12, -39, 1, -48, 9, -36, 9, -1, -2, 7, -12, -4)
+interaction_polygon_position = Vector2(0, 22)
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="PickupPoint" parent="Markers" instance=ExtResource("15_6v2c2")]
+position = Vector2(134, 137)
+
+[node name="AboveCage" parent="Markers" instance=ExtResource("16_a2bdg")]
+position = Vector2(166, -51)
+
+[node name="ScrapsPos" parent="Markers" instance=ExtResource("17_kee2n")]
+position = Vector2(222, 117)
+
+[node name="TibsPos" parent="Markers" instance=ExtResource("18_kx578")]
+position = Vector2(125, 112)
+
+[node name="NewRatSpawn" parent="Markers" instance=ExtResource("19_iu7oe")]
+position = Vector2(323, 124)
+
+[node name="NewRatPos" parent="Markers" instance=ExtResource("20_pen45")]
+position = Vector2(249, 137)
+
+[node name="CageExit" parent="Markers" instance=ExtResource("21_e68mm")]
+position = Vector2(157, 30)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="CharacterTibs *" parent="Characters" instance=ExtResource("4_ca4ik")]
+position = Vector2(134, 137)
+
+[node name="CharacterRat1 *" parent="Characters" instance=ExtResource("11_x7v8e")]
+position = Vector2(76, 107)
+baseline = -45
+walk_to_point = Vector2(69.8791, -0.428711)
+
+[node name="CharacterHand *" parent="Characters" instance=ExtResource("17_wguo1")]
+position = Vector2(41, -12)
+walk_to_point = Vector2(-0.428696, 0)
+
+[node name="CharacterRat2 *" parent="Characters" instance=ExtResource("20_af2nx")]
+position = Vector2(8, 119)
+walk_to_point = Vector2(138.043, -12.8612)
+
+[node name="CharacterScraps *" parent="Characters" instance=ExtResource("23_o46yi")]
+position = Vector2(219, 123)

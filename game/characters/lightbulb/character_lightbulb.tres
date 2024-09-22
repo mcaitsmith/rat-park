@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c4lv5pij157x4"]
+
+[ext_resource type="Script" path="res://game/characters/lightbulb/character_lightbulb_state.gd" id="1_2tljm"]
+
+[resource]
+resource_name = "Lightbulb"
+script = ExtResource("1_2tljm")
+script_name = "Lightbulb"
+scene = "res://game/characters/lightbulb/character_lightbulb.tscn"

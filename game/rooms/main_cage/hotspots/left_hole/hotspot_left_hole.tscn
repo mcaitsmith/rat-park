@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbjrwm8ulp5qn"]
+
+[ext_resource type="Script" path="res://game/rooms/main_cage/hotspots/left_hole/hotspot_left_hole.gd" id="1_2ypnb"]
+
+[node name="LeftHole" type="Area2D"]
+script = ExtResource("1_2ypnb")
+script_name = "LeftHole"
+description = "Left Hole"
+cursor = 1
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)

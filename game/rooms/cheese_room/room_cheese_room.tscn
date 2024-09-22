@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://cgqybtwegexrk"]
+
+[ext_resource type="Script" path="res://game/rooms/cheese_room/room_cheese_room.gd" id="1_v3lny"]
+[ext_resource type="PackedScene" uid="uid://51qw2hd2t7lq" path="res://game/rooms/cheese_room/props/background/prop_background.tscn" id="2_1au4a"]
+[ext_resource type="PackedScene" uid="uid://bm2763q4464i1" path="res://game/rooms/cheese_room/walkable_areas/floor/walkable_area_floor.tscn" id="2_hc6ot"]
+[ext_resource type="Texture2D" uid="uid://c8n2m5x4e41tf" path="res://game/rooms/cheese_room/props/background/CheeseRoom_Back_0.png" id="3_geltc"]
+[ext_resource type="PackedScene" uid="uid://dk4l23xu00a2p" path="res://game/rooms/cheese_room/props/battery/prop_battery.tscn" id="4_dixji"]
+[ext_resource type="Texture2D" uid="uid://gvv8gcaj1hp3" path="res://game/rooms/cheese_room/props/battery/CheeseRoom_Battery_0.png" id="5_7k8xr"]
+[ext_resource type="PackedScene" uid="uid://dpwffmrpcf8ce" path="res://game/rooms/cheese_room/props/electrodes/prop_electrodes.tscn" id="6_c0t0g"]
+[ext_resource type="Texture2D" uid="uid://so1l1g5npkx" path="res://game/rooms/cheese_room/props/electrodes/ElectrodesOn_0.png" id="7_kp084"]
+[ext_resource type="PackedScene" uid="uid://b6yxte863a1kt" path="res://game/rooms/cheese_room/hotspots/cheese/hotspot_cheese.tscn" id="9_7i5rs"]
+[ext_resource type="PackedScene" uid="uid://c00w7og8sngb5" path="res://game/characters/scraps/character_scraps.tscn" id="9_eeh4e"]
+[ext_resource type="PackedScene" uid="uid://bxy3beu1hyjcw" path="res://game/rooms/cheese_room/hotspots/right_hole/hotspot_right_hole.tscn" id="10_6ioki"]
+[ext_resource type="PackedScene" uid="uid://drcxvwsd6vtb5" path="res://game/rooms/cheese_room/hotspots/socket/hotspot_socket.tscn" id="11_gn50k"]
+
+[node name="RoomCheeseRoom" type="Node2D"]
+script = ExtResource("1_v3lny")
+script_name = "CheeseRoom"
+width = 480
+height = 200
+limit_left = -80.0
+limit_right = 400.0
+popochiu_placeholder = null
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Floor" parent="WalkableAreas" instance=ExtResource("2_hc6ot")]
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Background" parent="Props" instance=ExtResource("2_1au4a")]
+position = Vector2(160, 100)
+texture = ExtResource("3_geltc")
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Battery" parent="Props" instance=ExtResource("4_dixji")]
+position = Vector2(160, 100)
+texture = ExtResource("5_7k8xr")
+baseline = -104
+walk_to_point = Vector2(127.967, 13.7092)
+interaction_polygon = PackedVector2Array(-137, -61, -121, -59, -120, -25, -137, -24)
+interaction_polygon_position = Vector2(257, 0)
+
+[node name="Electrodes" parent="Props" instance=ExtResource("6_c0t0g")]
+position = Vector2(160, 100)
+texture = ExtResource("7_kp084")
+baseline = -106
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="Cheese" parent="Hotspots" instance=ExtResource("9_7i5rs")]
+position = Vector2(160, 100)
+baseline = -104
+walk_to_point = Vector2(-157.202, 12.3213)
+interaction_polygon = PackedVector2Array(-12, -12, 5, -12, 6, 3, -14, 20)
+interaction_polygon_position = Vector2(-92, 11)
+
+[node name="RightHole" parent="Hotspots" instance=ExtResource("10_6ioki")]
+position = Vector2(368, 89)
+baseline = -110
+walk_to_point = Vector2(-53.1088, 32.2902)
+interaction_polygon = PackedVector2Array(-12, -12, -1, -25, 12, -12, 11, 18, -1, 33, -11, 21)
+interaction_polygon_position = Vector2(0, -3)
+
+[node name="Socket" parent="Hotspots" instance=ExtResource("11_gn50k")]
+position = Vector2(288, 58)
+baseline = -65
+walk_to_point = Vector2(-1.2746, 50.1348)
+interaction_polygon = PackedVector2Array(-9, -20, 8, -20, 8, 19, -8, 19)
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="CharacterScraps *" parent="Characters" instance=ExtResource("9_eeh4e")]
+position = Vector2(118, 122)
+walk_to_point = Vector2(70.5286, -0.424866)

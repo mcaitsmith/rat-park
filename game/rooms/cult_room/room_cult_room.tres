@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://0mrunl7n7rux"]
+
+[ext_resource type="Script" path="res://game/rooms/cult_room/room_cult_room_state.gd" id="1_gvpve"]
+
+[resource]
+resource_name = "CultRoom"
+script = ExtResource("1_gvpve")
+script_name = "CultRoom"
+scene = "res://game/rooms/cult_room/room_cult_room.tscn"
+visited = false
+visited_first_time = false
+visited_times = 0

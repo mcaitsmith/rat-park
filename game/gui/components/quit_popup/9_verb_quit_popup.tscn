@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctsse8p2o3eie"]
+
+[ext_resource type="PackedScene" uid="uid://cdgmmh4mspqux" path="res://game/gui/components/popups/quit_popup/quit_popup.tscn" id="1_0lxh2"]
+
+[node name="9VerbQuitPopup" instance=ExtResource("1_0lxh2")]
+script_name = &"9VerbQuitPopup"

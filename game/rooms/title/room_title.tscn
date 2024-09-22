@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://cy11w57eupyrk"]
+
+[ext_resource type="Script" path="res://game/rooms/title/room_title.gd" id="1_jvsed"]
+[ext_resource type="PackedScene" uid="uid://k3prrpyinykv" path="res://game/rooms/title/walkable_areas/screen/walkable_area_screen.tscn" id="2_jbkrm"]
+[ext_resource type="PackedScene" uid="uid://cd3pxv7emsn2o" path="res://game/rooms/title/props/background/prop_background.tscn" id="2_v3bnn"]
+[ext_resource type="Texture2D" uid="uid://cutjmjpj0vpja" path="res://game/rooms/title/props/background/Back_0.png" id="3_w6kfx"]
+[ext_resource type="PackedScene" uid="uid://crxc5qebvhfhv" path="res://game/rooms/title/props/title/prop_title.tscn" id="4_8e8jc"]
+[ext_resource type="Texture2D" uid="uid://cxcps4s081ysn" path="res://game/rooms/title/props/title/Title_0.png" id="5_r37p6"]
+[ext_resource type="PackedScene" uid="uid://uj7c702v6pog" path="res://game/rooms/title/props/start/prop_start.tscn" id="6_yxc1l"]
+[ext_resource type="PackedScene" uid="uid://b1ojlhy3kvl6" path="res://game/characters/tibs/character_tibs.tscn" id="7_rfox2"]
+[ext_resource type="Texture2D" uid="uid://ceqhob8pvixqw" path="res://game/rooms/title/props/start/starttext.png" id="8_6ugxm"]
+
+[node name="RoomTitle" type="Node2D"]
+script = ExtResource("1_jvsed")
+script_name = "Title"
+width = 320
+height = 200
+popochiu_placeholder = null
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Screen" parent="WalkableAreas" instance=ExtResource("2_jbkrm")]
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Background" parent="Props" instance=ExtResource("2_v3bnn")]
+position = Vector2(160, 100)
+texture = ExtResource("3_w6kfx")
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Title" parent="Props" instance=ExtResource("4_8e8jc")]
+position = Vector2(160, 100)
+texture = ExtResource("5_r37p6")
+interaction_polygon = PackedVector2Array(-88, -47, 86, -58, 85, 22, -93, 29)
+
+[node name="Start" parent="Props" instance=ExtResource("6_yxc1l")]
+position = Vector2(160, 120)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_6ugxm")
+cursor = 10
+interaction_polygon = PackedVector2Array(-50, -24, 50, -26, 50, 28, -50, 28)
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="CharacterTibs *" parent="Characters" instance=ExtResource("7_rfox2")]
+position = Vector2(160, 100)

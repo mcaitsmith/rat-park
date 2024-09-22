@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://28e204ktewle"]
+
+[ext_resource type="Script" path="res://addons/popochiu/engine/objects/dialog/popochiu_dialog_option.gd" id="1_vapy1"]
+[ext_resource type="Script" path="res://game/dialogs/dialog_glyph/dialog_dialog_glyph.gd" id="2_pxwr8"]
+
+[sub_resource type="Resource" id="Resource_oueqt"]
+resource_name = "Opt1"
+script = ExtResource("1_vapy1")
+id = "Opt1"
+text = "Why?"
+visible = true
+disabled = false
+always_on = false
+
+[sub_resource type="Resource" id="Resource_1wc0n"]
+resource_name = "Opt2"
+script = ExtResource("1_vapy1")
+id = "Opt2"
+text = "Can you make a glyph for me?"
+visible = true
+disabled = false
+always_on = false
+
+[resource]
+resource_name = "DialogGlyph"
+script = ExtResource("2_pxwr8")
+script_name = "DialogGlyph"
+options = Array[ExtResource("1_vapy1")]([SubResource("Resource_oueqt"), SubResource("Resource_1wc0n")])

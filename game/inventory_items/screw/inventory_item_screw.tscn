@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwdp23cfsutxw"]
+
+[ext_resource type="Texture2D" uid="uid://b8wj8febfdnlq" path="res://game/inventory_items/screw/Screw_0.png" id="1_d4pmd"]
+[ext_resource type="Script" path="res://game/inventory_items/screw/inventory_item_screw.gd" id="1_ne0on"]
+
+[node name="ItemScrew" type="TextureRect"]
+texture_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("1_d4pmd")
+stretch_mode = 5
+script = ExtResource("1_ne0on")
+script_name = "Screw"
+description = "Screw"

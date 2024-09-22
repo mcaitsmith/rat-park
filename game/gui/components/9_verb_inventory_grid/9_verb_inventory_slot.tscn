@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnd258w4fsoi5"]
+
+[ext_resource type="Theme" uid="uid://dde2bq0jyshn5" path="res://game/gui/resources/gui_theme.tres" id="1_tt1fb"]
+
+[node name="9VerbInventorySlot" type="PanelContainer"]
+custom_minimum_size = Vector2(40, 24)
+offset_right = 40.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_tt1fb")

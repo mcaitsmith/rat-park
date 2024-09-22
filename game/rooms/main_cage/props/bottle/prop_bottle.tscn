@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy63cpx2aavhq"]
+
+[ext_resource type="Script" path="res://game/rooms/main_cage/props/bottle/prop_bottle.gd" id="1_ckm0w"]
+
+[node name="Bottle" type="Area2D"]
+input_pickable = false
+script = ExtResource("1_ckm0w")
+script_name = "Bottle"
+description = "Bottle"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

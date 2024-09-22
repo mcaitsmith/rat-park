@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://e30dindghc35"]
+
+[ext_resource type="Script" path="res://game/characters/zippy/character_zippy_state.gd" id="1_qjnqg"]
+
+[resource]
+resource_name = "Zippy"
+script = ExtResource("1_qjnqg")
+script_name = "Zippy"
+scene = "res://game/characters/zippy/character_zippy.tscn"

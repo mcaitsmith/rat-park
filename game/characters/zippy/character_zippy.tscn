@@ -1,0 +1,161 @@
+[gd_scene load_steps=25 format=3 uid="uid://c7jgko752jcgi"]
+
+[ext_resource type="Script" path="res://game/characters/zippy/character_zippy.gd" id="1_tccql"]
+[ext_resource type="Texture2D" uid="uid://675ucsp2efje" path="res://game/characters/zippy/IdleR_0.png" id="2_emr7w"]
+[ext_resource type="Texture2D" uid="uid://cy0555mmnpvdd" path="res://game/characters/tibs/WalkQuadR_0.png" id="4_c8nnp"]
+[ext_resource type="Texture2D" uid="uid://ova8tetswpfd" path="res://game/characters/tibs/WalkQuadR_1.png" id="5_lqqpk"]
+[ext_resource type="Texture2D" uid="uid://bd6keubn3pi8q" path="res://game/characters/tibs/WalkQuadR_2.png" id="6_bb1qt"]
+[ext_resource type="Texture2D" uid="uid://d3n4pr155dtoo" path="res://game/characters/tibs/WalkQuadR_3.png" id="7_od3tw"]
+[ext_resource type="Texture2D" uid="uid://b0gm7mvg0cyki" path="res://game/characters/tibs/WalkQuadR_4.png" id="8_ibpbk"]
+[ext_resource type="Texture2D" uid="uid://ny0vof8u1613" path="res://game/characters/tibs/WalkQuadR_5.png" id="9_lbf5o"]
+[ext_resource type="Texture2D" uid="uid://c1ixxxx6iv7o4" path="res://game/characters/zippy/RunR_0.png" id="10_je10r"]
+[ext_resource type="Texture2D" uid="uid://cf52t7o86fus0" path="res://game/characters/zippy/RunR_1.png" id="11_bm8e5"]
+[ext_resource type="Texture2D" uid="uid://bq5d3202i3bsh" path="res://game/characters/zippy/RunR_2.png" id="12_rqgdu"]
+[ext_resource type="Texture2D" uid="uid://esfkyfv5r1li" path="res://game/characters/zippy/RunR_3.png" id="13_k1grl"]
+[ext_resource type="Texture2D" uid="uid://ctwq3vbb1gl1b" path="res://game/characters/zippy/RunTalkR_0.png" id="14_560q6"]
+[ext_resource type="Texture2D" uid="uid://d236lehdxwc4v" path="res://game/characters/zippy/RunTalkR_1.png" id="15_w2ago"]
+[ext_resource type="Texture2D" uid="uid://bopxgt51ggrtq" path="res://game/characters/zippy/RunTalkR_2.png" id="16_fb0vd"]
+[ext_resource type="Texture2D" uid="uid://voqen7yop8cy" path="res://game/characters/zippy/RunTalkR_3.png" id="17_1kx5r"]
+[ext_resource type="Texture2D" uid="uid://cb6v1yrm1o6po" path="res://game/characters/tibs/TalkQuadR_0.png" id="18_l2xu4"]
+[ext_resource type="Texture2D" uid="uid://cwj45ckikumyl" path="res://game/characters/tibs/TalkQuadR_1.png" id="19_2ysag"]
+
+[sub_resource type="Animation" id="Animation_wsa30"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_emr7w")]
+}
+
+[sub_resource type="Animation" id="Animation_4j27j"]
+resource_name = "walk_wheel"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_c8nnp"), ExtResource("5_lqqpk"), ExtResource("6_bb1qt"), ExtResource("7_od3tw"), ExtResource("8_ibpbk"), ExtResource("9_lbf5o")]
+}
+
+[sub_resource type="Animation" id="Animation_du7tk"]
+resource_name = "idle"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_je10r"), ExtResource("11_bm8e5"), ExtResource("12_rqgdu"), ExtResource("13_k1grl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_emr7w")]
+}
+
+[sub_resource type="Animation" id="Animation_xaf27"]
+resource_name = "talk"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_560q6"), ExtResource("15_w2ago"), ExtResource("16_fb0vd"), ExtResource("17_1kx5r"), ExtResource("14_560q6"), ExtResource("15_w2ago")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_l2xu4"), ExtResource("19_2ysag"), ExtResource("18_l2xu4"), ExtResource("19_2ysag"), ExtResource("18_l2xu4"), ExtResource("19_2ysag")]
+}
+
+[sub_resource type="Animation" id="Animation_m3ddj"]
+resource_name = "walk"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_c8nnp"), ExtResource("5_lqqpk"), ExtResource("6_bb1qt"), ExtResource("7_od3tw"), ExtResource("8_ibpbk"), ExtResource("9_lbf5o")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lkts0"]
+_data = {
+"RESET": SubResource("Animation_wsa30"),
+"idle": SubResource("Animation_du7tk"),
+"talk": SubResource("Animation_xaf27"),
+"walk": SubResource("Animation_m3ddj"),
+"walk_wheel": SubResource("Animation_4j27j")
+}
+
+[node name="CharacterZippy" type="Area2D"]
+script = ExtResource("1_tccql")
+flips_when = 2
+walk_speed = 150.0
+dialog_pos = Vector2(0, -30)
+popochiu_placeholder = null
+script_name = "Zippy"
+description = "Zippy"
+cursor = 8
+interaction_polygon = PackedVector2Array(-16, -21, 25, -26, 25, -10, -19, -3)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-16, -21, 25, -26, 25, -10, -19, -3)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lkts0")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4, -12)
+texture = ExtResource("2_emr7w")

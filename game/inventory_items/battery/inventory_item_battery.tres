@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://br8dbvy7onrwd"]
+
+[ext_resource type="Script" path="res://game/inventory_items/battery/inventory_item_battery_state.gd" id="1_bv2hh"]
+
+[resource]
+resource_name = "Battery"
+script = ExtResource("1_bv2hh")
+script_name = "Battery"
+scene = "res://game/inventory_items/battery/inventory_item_battery.tscn"

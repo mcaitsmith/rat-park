@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bx0xdfgviub33"]
+
+[ext_resource type="Script" path="res://game/rooms/end/room_end.gd" id="1_nf8pl"]
+[ext_resource type="PackedScene" uid="uid://0u7cucijug13" path="res://game/rooms/end/props/background/prop_background.tscn" id="2_kqbxx"]
+[ext_resource type="Texture2D" uid="uid://cfe0bthjkmwv3" path="res://game/rooms/end/props/background/Back_0.png" id="3_wryxd"]
+[ext_resource type="PackedScene" uid="uid://cxmpigmwcbyws" path="res://game/rooms/end/props/end/prop_end.tscn" id="4_gi8hs"]
+[ext_resource type="Texture2D" uid="uid://c2rt4u57l16ed" path="res://game/rooms/end/props/end/endtext.png" id="5_ei72j"]
+
+[node name="RoomEnd" type="Node2D"]
+script = ExtResource("1_nf8pl")
+script_name = "End"
+has_player = false
+hide_gui = true
+width = 320
+height = 200
+popochiu_placeholder = null
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Background" parent="Props" instance=ExtResource("2_kqbxx")]
+z_index = 100
+position = Vector2(160, 100)
+texture = ExtResource("3_wryxd")
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="End" parent="Props" instance=ExtResource("4_gi8hs")]
+z_index = 101
+position = Vector2(160, 100)
+texture = ExtResource("5_ei72j")
+interaction_polygon = PackedVector2Array(-156, -97, 156, -96, 157, 96, -155, 96)
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]

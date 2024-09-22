@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://boik6j0he0hj4"]
+
+[ext_resource type="Script" path="res://game/characters/hand/character_hand.gd" id="1_qq68x"]
+[ext_resource type="Texture2D" uid="uid://dvsdt7dltjsa0" path="res://game/characters/hand/Hand_0.png" id="2_58dw7"]
+
+[node name="CharacterHand" type="Area2D"]
+input_pickable = false
+script = ExtResource("1_qq68x")
+walk_speed = 150.0
+ignore_walkable_areas = true
+popochiu_placeholder = null
+script_name = "Hand"
+description = "Hand"
+clickable = false
+cursor = 8
+always_on_top = true
+interaction_polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(92, -72)
+texture = ExtResource("2_58dw7")

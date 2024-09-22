@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://03cpbqfopw5t"]
+
+[ext_resource type="Texture2D" uid="uid://cl7hxu83gs1lw" path="res://game/inventory_items/battery/Battery_0.png" id="1_d1d4u"]
+[ext_resource type="Script" path="res://game/inventory_items/battery/inventory_item_battery.gd" id="1_k5eqf"]
+
+[node name="ItemBattery" type="TextureRect"]
+texture_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("1_d1d4u")
+stretch_mode = 5
+script = ExtResource("1_k5eqf")
+script_name = "Battery"
+description = "Battery"

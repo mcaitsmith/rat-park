@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://sfs7ynjp4spp"]
+
+[ext_resource type="Script" path="res://addons/popochiu/engine/objects/dialog/popochiu_dialog_option.gd" id="1_nkqql"]
+[ext_resource type="Script" path="res://game/dialogs/dialog_glyph_2/dialog_dialog_glyph_2.gd" id="2_0c5om"]
+
+[sub_resource type="Resource" id="Resource_wfuh0"]
+resource_name = "Opt1"
+script = ExtResource("1_nkqql")
+id = "Opt1"
+text = "I want a different glyph now."
+visible = true
+disabled = false
+always_on = false
+
+[sub_resource type="Resource" id="Resource_b1w2h"]
+resource_name = "Opt2"
+script = ExtResource("1_nkqql")
+id = "Opt2"
+text = "Nevermind."
+visible = true
+disabled = false
+always_on = false
+
+[resource]
+resource_name = "DialogGlyph2"
+script = ExtResource("2_0c5om")
+script_name = "DialogGlyph2"
+options = Array[ExtResource("1_nkqql")]([SubResource("Resource_wfuh0"), SubResource("Resource_b1w2h")])

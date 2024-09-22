@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvx6e6bh4lyw6"]
+
+[ext_resource type="Texture2D" uid="uid://tge7pjf03pen" path="res://game/inventory_items/glyph_t/T_0.png" id="1_8qamm"]
+[ext_resource type="Script" path="res://game/inventory_items/glyph_t/inventory_item_glyph_t.gd" id="1_bj6xr"]
+
+[node name="ItemGlyphT" type="TextureRect"]
+texture_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("1_8qamm")
+stretch_mode = 5
+script = ExtResource("1_bj6xr")
+script_name = "GlyphT"
+description = "Glyph T"

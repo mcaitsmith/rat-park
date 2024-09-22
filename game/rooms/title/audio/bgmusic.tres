@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AudioCueMusic" load_steps=3 format=3 uid="uid://ggc2aal72ex2"]
+
+[ext_resource type="AudioStream" uid="uid://byljr21saqpnm" path="res://game/rooms/title/audio/bgmusic.ogg" id="1_g3wxb"]
+[ext_resource type="Script" path="res://addons/popochiu/engine/audio_manager/audio_cue_music.gd" id="2_uku3o"]
+
+[resource]
+resource_name = "bgmusic"
+script = ExtResource("2_uku3o")
+audio = ExtResource("1_g3wxb")
+loop = true
+is_2d = false
+can_play_simultaneous = true
+pitch = 0.0
+volume = 0.0
+rnd_pitch = Vector2(0, 0)
+rnd_volume = Vector2(0, 0)
+max_distance = 2000
+bus = "Master"

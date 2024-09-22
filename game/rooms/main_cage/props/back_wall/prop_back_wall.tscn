@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2myapml01i8l"]
+
+[ext_resource type="Script" path="res://game/rooms/main_cage/props/back_wall/prop_back_wall.gd" id="1_23bhi"]
+
+[node name="BackWall" type="Area2D"]
+input_pickable = false
+script = ExtResource("1_23bhi")
+script_name = "BackWall"
+description = "Back Wall"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

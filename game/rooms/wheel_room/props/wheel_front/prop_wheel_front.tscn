@@ -1,0 +1,54 @@
+[gd_scene load_steps=11 format=3 uid="uid://caeokdpsagx3d"]
+
+[ext_resource type="Script" path="res://game/rooms/wheel_room/props/wheel_front/prop_wheel_front.gd" id="1_rjifc"]
+[ext_resource type="Texture2D" uid="uid://13s4lwiak86i" path="res://game/rooms/wheel_room/props/wheel_front/ExerciseWheelFore_0.png" id="2_wmifi"]
+[ext_resource type="Texture2D" uid="uid://dx368mtkhepfw" path="res://game/rooms/wheel_room/props/wheel_front/ExerciseWheelFore_1.png" id="3_o2s2w"]
+[ext_resource type="Texture2D" uid="uid://cwgm0jxtb1py" path="res://game/rooms/wheel_room/props/wheel_front/ExerciseWheelFore_2.png" id="4_ase65"]
+[ext_resource type="Texture2D" uid="uid://dnkr0cgf1wela" path="res://game/rooms/wheel_room/props/wheel_front/ExerciseWheelFore_3.png" id="5_8nb6x"]
+[ext_resource type="Texture2D" uid="uid://dn1d8n0c6o14x" path="res://game/rooms/wheel_room/props/wheel_front/ExerciseWheelFore_4.png" id="6_m8mkk"]
+[ext_resource type="Texture2D" uid="uid://dkl5r3isxy0cu" path="res://game/rooms/wheel_room/props/wheel_front/ExerciseWheelFore_5.png" id="7_2sacl"]
+[ext_resource type="Texture2D" uid="uid://cc671taudp0v4" path="res://game/rooms/wheel_room/props/wheel_front/ExerciseWheelFore_6.png" id="8_rt6r0"]
+
+[sub_resource type="Animation" id="Animation_m0bg5"]
+resource_name = "wheelmove"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_wmifi"), ExtResource("3_o2s2w"), ExtResource("4_ase65"), ExtResource("5_8nb6x"), ExtResource("6_m8mkk"), ExtResource("7_2sacl"), ExtResource("8_rt6r0")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nx46k"]
+_data = {
+"wheelmove": SubResource("Animation_m0bg5")
+}
+
+[node name="WheelFront" type="Area2D"]
+input_pickable = false
+script = ExtResource("1_rjifc")
+script_name = "WheelFront"
+description = "Wheel Front"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nx46k")
+}

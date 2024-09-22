@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://drcxvwsd6vtb5"]
+
+[ext_resource type="Script" path="res://game/rooms/cheese_room/hotspots/socket/hotspot_socket.gd" id="1_b2c0b"]
+
+[node name="Socket" type="Area2D"]
+script = ExtResource("1_b2c0b")
+script_name = "Socket"
+description = "Socket"
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)

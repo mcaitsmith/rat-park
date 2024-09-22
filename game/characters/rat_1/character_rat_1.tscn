@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://gqjqe6a8t8gx"]
+
+[ext_resource type="Script" path="res://game/characters/rat_1/character_rat_1.gd" id="1_y8tr2"]
+[ext_resource type="Texture2D" uid="uid://bnrdyblnjiif" path="res://game/characters/rat_1/DeadR_0.png" id="2_dn38k"]
+[ext_resource type="Texture2D" uid="uid://binm551u1lnra" path="res://game/characters/rat_1/IdleR_0.png" id="2_ytmil"]
+[ext_resource type="Animation" uid="uid://x2r8bjx1tsd2" path="res://game/characters/tibs/walk.res" id="4_dvi7k"]
+[ext_resource type="Animation" uid="uid://dxor5c2m7077y" path="res://game/characters/tibs/talk.res" id="5_21yvv"]
+
+[sub_resource type="Animation" id="Animation_hjxej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ytmil")]
+}
+
+[sub_resource type="Animation" id="Animation_dsitq"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_dn38k")]
+}
+
+[sub_resource type="Animation" id="Animation_2uspc"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ytmil")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qyqbw"]
+_data = {
+"RESET": SubResource("Animation_hjxej"),
+"dead": SubResource("Animation_dsitq"),
+"idle": SubResource("Animation_2uspc"),
+"talk": ExtResource("5_21yvv"),
+"walk": ExtResource("4_dvi7k")
+}
+
+[node name="CharacterRat1" type="Area2D"]
+script = ExtResource("1_y8tr2")
+flips_when = 2
+walk_speed = 150.0
+dialog_pos = Vector2(0, -30)
+popochiu_placeholder = null
+script_name = "Rat1"
+description = "Rat"
+cursor = 8
+interaction_polygon = PackedVector2Array(-17, -21, 25, -24, 21, 0, -19, 0)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-17, -21, 25, -24, 21, 0, -19, 0)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qyqbw")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4, -12)
+texture = ExtResource("2_ytmil")

@@ -1,0 +1,133 @@
+[gd_scene load_steps=13 format=3 uid="uid://cs0mfva16x3ro"]
+
+[ext_resource type="Script" path="res://game/characters/lightbulb/character_lightbulb.gd" id="1_ifuii"]
+[ext_resource type="Texture2D" uid="uid://d32sjq3xhr6ex" path="res://game/characters/lightbulb/LightBulbOn_0.png" id="2_dr84y"]
+[ext_resource type="Texture2D" uid="uid://cqqoyfvq35vn" path="res://game/characters/lightbulb/LightBulbOff_0.png" id="3_yo2ej"]
+[ext_resource type="Texture2D" uid="uid://dh35nv0drcnaw" path="res://game/characters/lightbulb/LightBulbPaintedOff_0.png" id="4_hqu6k"]
+[ext_resource type="Texture2D" uid="uid://st7rs2udv71w" path="res://game/characters/lightbulb/LightBulbPaintedOn_0.png" id="5_povie"]
+
+[sub_resource type="Animation" id="Animation_mesg1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_dr84y")]
+}
+
+[sub_resource type="Animation" id="Animation_fbcij"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_dr84y")]
+}
+
+[sub_resource type="Animation" id="Animation_humlb"]
+resource_name = "off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_yo2ej")]
+}
+
+[sub_resource type="Animation" id="Animation_ea7gn"]
+resource_name = "on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_dr84y")]
+}
+
+[sub_resource type="Animation" id="Animation_u73sb"]
+resource_name = "highlight_off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_hqu6k")]
+}
+
+[sub_resource type="Animation" id="Animation_dctir"]
+resource_name = "highlight_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_povie")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_moqvs"]
+_data = {
+"RESET": SubResource("Animation_mesg1"),
+"highlight_off": SubResource("Animation_u73sb"),
+"highlight_on": SubResource("Animation_dctir"),
+"idle": SubResource("Animation_fbcij"),
+"off": SubResource("Animation_humlb"),
+"on": SubResource("Animation_ea7gn")
+}
+
+[node name="CharacterLightbulb" type="Area2D"]
+script = ExtResource("1_ifuii")
+popochiu_placeholder = null
+script_name = "Lightbulb"
+description = "Lightbulb"
+cursor = 8
+interaction_polygon = PackedVector2Array(-10, -10, 11, -17, 26, -10, 26, 10, 10, 18, -10, 10, -24, 18, -34, 13, -34, -15, -22, -20)
+interaction_polygon_position = Vector2(-183, -73)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(-183, -73)
+polygon = PackedVector2Array(-10, -10, 11, -17, 26, -10, 26, 10, 10, 18, -10, 10, -24, 18, -34, 13, -34, -15, -22, -20)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_moqvs")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_dr84y")

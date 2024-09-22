@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cgahj066eljch"]
+
+[ext_resource type="Script" path="res://game/rooms/cheese_room/room_cheese_room_state.gd" id="1_8c6om"]
+
+[resource]
+resource_name = "CheeseRoom"
+script = ExtResource("1_8c6om")
+script_name = "CheeseRoom"
+scene = "res://game/rooms/cheese_room/room_cheese_room.tscn"
+visited = false
+visited_first_time = false
+visited_times = 0

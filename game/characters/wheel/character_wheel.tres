@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cwveqrj1aghra"]
+
+[ext_resource type="Script" path="res://game/characters/wheel/character_wheel_state.gd" id="1_i3dds"]
+
+[resource]
+resource_name = "Wheel"
+script = ExtResource("1_i3dds")
+script_name = "Wheel"
+scene = "res://game/characters/wheel/character_wheel.tscn"

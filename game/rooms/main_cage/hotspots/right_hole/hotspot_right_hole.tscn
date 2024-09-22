@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://caoc8n8rbkem0"]
+
+[ext_resource type="Script" path="res://game/rooms/main_cage/hotspots/right_hole/hotspot_right_hole.gd" id="1_wheoe"]
+
+[node name="RightHole" type="Area2D"]
+script = ExtResource("1_wheoe")
+script_name = "RightHole"
+description = "Right Hole"
+cursor = 1
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://byp3ga8uko1fy"]
+
+[ext_resource type="Script" path="res://game/rooms/wheel_room/room_wheel_room_state.gd" id="1_ls7uh"]
+
+[resource]
+resource_name = "WheelRoom"
+script = ExtResource("1_ls7uh")
+script_name = "WheelRoom"
+scene = "res://game/rooms/wheel_room/room_wheel_room.tscn"
+visited = false
+visited_first_time = false
+visited_times = 0

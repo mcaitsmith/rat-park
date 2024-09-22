@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgl6812tprmx8"]
+
+[ext_resource type="Script" path="res://game/rooms/cult_room/hotspots/dictionary/hotspot_dictionary.gd" id="1_nt0pt"]
+
+[node name="Dictionary" type="Area2D"]
+script = ExtResource("1_nt0pt")
+script_name = "Dictionary"
+description = "Dictionary"
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)

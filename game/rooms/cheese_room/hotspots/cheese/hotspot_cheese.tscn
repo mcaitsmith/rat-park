@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6yxte863a1kt"]
+
+[ext_resource type="Script" path="res://game/rooms/cheese_room/hotspots/cheese/hotspot_cheese.gd" id="1_uylj5"]
+
+[node name="Cheese" type="Area2D"]
+script = ExtResource("1_uylj5")
+script_name = "Cheese"
+description = "Cheese"
+cursor = 1
+interaction_polygon = PackedVector2Array()
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)

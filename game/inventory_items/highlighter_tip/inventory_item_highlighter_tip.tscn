@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3e665gblcxfl"]
+
+[ext_resource type="Script" path="res://game/inventory_items/highlighter_tip/inventory_item_highlighter_tip.gd" id="1_3l7ir"]
+[ext_resource type="Texture2D" uid="uid://blm0cmblomreo" path="res://game/inventory_items/highlighter_tip/HighlighterTip_0.png" id="1_p2wks"]
+
+[node name="ItemHighlighterTip" type="TextureRect"]
+texture_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("1_p2wks")
+stretch_mode = 5
+script = ExtResource("1_3l7ir")
+script_name = "HighlighterTip"
+description = "Highlighter Tip"

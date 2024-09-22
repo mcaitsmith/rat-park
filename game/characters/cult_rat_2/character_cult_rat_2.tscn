@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://dq1kujgn2fhvq"]
+
+[ext_resource type="Script" path="res://game/characters/cult_rat_2/character_cult_rat_2.gd" id="1_e2mim"]
+[ext_resource type="Texture2D" uid="uid://dpe1v2310kb8m" path="res://game/characters/cult_rat_2/IdleR_0.png" id="2_pided"]
+[ext_resource type="Animation" uid="uid://x2r8bjx1tsd2" path="res://game/characters/tibs/walk.res" id="3_a1w50"]
+[ext_resource type="Animation" uid="uid://dxor5c2m7077y" path="res://game/characters/tibs/talk.res" id="4_q5p0v"]
+
+[sub_resource type="Animation" id="Animation_2j0ye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_pided")]
+}
+
+[sub_resource type="Animation" id="Animation_awpmi"]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_pided")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_no3qc"]
+_data = {
+"RESET": SubResource("Animation_2j0ye"),
+"idle": SubResource("Animation_awpmi"),
+"talk": ExtResource("4_q5p0v"),
+"walk": ExtResource("3_a1w50")
+}
+
+[node name="CharacterCultRat2" type="Area2D"]
+script = ExtResource("1_e2mim")
+flips_when = 2
+walk_speed = 150.0
+dialog_pos = Vector2(0, -30)
+popochiu_placeholder = null
+script_name = "CultRat2"
+description = "Cult Rat"
+cursor = 8
+interaction_polygon = PackedVector2Array(-17, -21, 27, -26, 25, -9, -19, 0)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-17, -21, 27, -26, 25, -9, -19, 0)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_no3qc")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4, -12)
+texture = ExtResource("2_pided")

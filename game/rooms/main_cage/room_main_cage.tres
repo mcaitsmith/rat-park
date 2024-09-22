@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://pcwnrvbgfbua"]
+
+[ext_resource type="Script" path="res://game/rooms/main_cage/room_main_cage_state.gd" id="1_lbts7"]
+
+[resource]
+resource_name = "MainCage"
+script = ExtResource("1_lbts7")
+script_name = "MainCage"
+scene = "res://game/rooms/main_cage/room_main_cage.tscn"
+visited = false
+visited_first_time = false
+visited_times = 0

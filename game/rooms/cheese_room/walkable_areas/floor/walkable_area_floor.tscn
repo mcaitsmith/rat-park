@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm2763q4464i1"]
+
+[ext_resource type="Script" path="res://game/rooms/cheese_room/walkable_areas/floor/walkable_area_floor.gd" id="1_nvgaa"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_w1tfu"]
+vertices = PackedVector2Array(-42, 4, 159, 3, 195, 69, 40, 69, -50, 43, -193, 68, -157, 43, -153, 1, -139.367, 1.17188)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(4, 3, 5, 6), PackedInt32Array(6, 5, 7, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-153, 1, -139.364, 1.17427, -157, 43, -50, 43, -42, 4, 159, 3, 195, 69, 40, 69, -193, 68)])
+agent_radius = 0.0
+
+[node name="Floor" type="Node2D"]
+position = Vector2(160, 100)
+script = ExtResource("1_nvgaa")
+script_name = "Floor"
+description = "Floor"
+interaction_polygon = [PackedVector2Array(-153, 1, -139.364, 1.17427, -157, 43, -50, 43, -42, 4, 159, 3, 195, 69, 40, 69, -193, 68)]
+
+[node name="Perimeter" type="NavigationRegion2D" parent="."]
+visible = false
+modulate = Color(0, 1, 0, 1)
+navigation_polygon = SubResource("NavigationPolygon_w1tfu")

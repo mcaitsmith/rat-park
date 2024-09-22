@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://k3prrpyinykv"]
+
+[ext_resource type="Script" path="res://game/rooms/title/walkable_areas/screen/walkable_area_screen.gd" id="1_qxxmv"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_8ny1e"]
+vertices = PackedVector2Array(155, -94, 154, 96, -155, 96, -158, -95)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-158, -95, 155, -94, 154, 96, -155, 96)])
+agent_radius = 0.0
+
+[node name="Screen" type="Node2D"]
+position = Vector2(160, 100)
+script = ExtResource("1_qxxmv")
+script_name = "Screen"
+description = "Screen"
+interaction_polygon = [PackedVector2Array(-158, -95, 155, -94, 154, 96, -155, 96)]
+
+[node name="Perimeter" type="NavigationRegion2D" parent="."]
+visible = false
+modulate = Color(0, 1, 0, 1)
+navigation_polygon = SubResource("NavigationPolygon_8ny1e")

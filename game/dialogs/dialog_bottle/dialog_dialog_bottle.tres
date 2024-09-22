@@ -1,0 +1,37 @@
+[gd_resource type="Resource" load_steps=6 format=3 uid="uid://chikib8ipehyx"]
+
+[ext_resource type="Script" path="res://addons/popochiu/engine/objects/dialog/popochiu_dialog_option.gd" id="1_56717"]
+[ext_resource type="Script" path="res://game/dialogs/dialog_bottle/dialog_dialog_bottle.gd" id="2_o38wj"]
+
+[sub_resource type="Resource" id="Resource_x8qho"]
+resource_name = "Opt1"
+script = ExtResource("1_56717")
+id = "Opt1"
+text = "Why do you all like the water so much?"
+visible = true
+disabled = false
+always_on = false
+
+[sub_resource type="Resource" id="Resource_u2ubg"]
+resource_name = "Opt2"
+script = ExtResource("1_56717")
+id = "Opt2"
+text = "Don’t you all want to get out of here?"
+visible = true
+disabled = false
+always_on = false
+
+[sub_resource type="Resource" id="Resource_rq40a"]
+resource_name = "Opt3"
+script = ExtResource("1_56717")
+id = "Opt3"
+text = "Maybe special juice bad?"
+visible = true
+disabled = false
+always_on = false
+
+[resource]
+resource_name = "DialogBottle"
+script = ExtResource("2_o38wj")
+script_name = "DialogBottle"
+options = Array[ExtResource("1_56717")]([SubResource("Resource_x8qho"), SubResource("Resource_u2ubg"), SubResource("Resource_rq40a")])

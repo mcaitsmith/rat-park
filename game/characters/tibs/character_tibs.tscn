@@ -1,0 +1,114 @@
+[gd_scene load_steps=18 format=3 uid="uid://b1ojlhy3kvl6"]
+
+[ext_resource type="Script" path="res://game/characters/tibs/character_tibs.gd" id="1_8tcxj"]
+[ext_resource type="Animation" uid="uid://bt7bocskf06xv" path="res://game/characters/tibs/idle.res" id="2_sapmy"]
+[ext_resource type="Animation" uid="uid://5h3k7t7k7g02" path="res://game/characters/tibs/grab.res" id="4_7u4j1"]
+[ext_resource type="Texture2D" uid="uid://cghtsfe4yfk66" path="res://game/characters/tibs/WalkBiR_0.png" id="5_1jx2h"]
+[ext_resource type="Texture2D" uid="uid://j1oxr6qo1xi3" path="res://game/characters/tibs/WalkBiR_1.png" id="6_kti5e"]
+[ext_resource type="Texture2D" uid="uid://cendgvywcl7sh" path="res://game/characters/tibs/WalkBiR_2.png" id="7_41q7h"]
+[ext_resource type="Texture2D" uid="uid://l10f28pkw4mc" path="res://game/characters/tibs/WalkBiR_3.png" id="8_tnqwl"]
+[ext_resource type="Texture2D" uid="uid://cb6v1yrm1o6po" path="res://game/characters/tibs/TalkQuadR_0.png" id="9_k8on5"]
+[ext_resource type="Texture2D" uid="uid://ccbjummk27qql" path="res://game/characters/tibs/TalkBiR_0.png" id="9_x8yg7"]
+[ext_resource type="Texture2D" uid="uid://w0vtwybe122" path="res://game/characters/tibs/WalkBiR_4.png" id="9_ytg6q"]
+[ext_resource type="Texture2D" uid="uid://ct8r4o14u8hiu" path="res://game/characters/tibs/TalkBiR_1.png" id="10_cbjcj"]
+[ext_resource type="Texture2D" uid="uid://cwj45ckikumyl" path="res://game/characters/tibs/TalkQuadR_1.png" id="10_w4ck3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i1pxk"]
+
+[sub_resource type="Animation" id="Animation_x7l20"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_i1pxk")]
+}
+
+[sub_resource type="Animation" id="Animation_ulukt"]
+resource_name = "walk"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_1jx2h"), ExtResource("6_kti5e"), ExtResource("7_41q7h"), ExtResource("8_tnqwl"), ExtResource("9_ytg6q")]
+}
+
+[sub_resource type="Animation" id="Animation_ohoqd"]
+resource_name = "talk"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_k8on5"), ExtResource("10_w4ck3"), ExtResource("9_k8on5"), ExtResource("10_w4ck3"), ExtResource("9_k8on5"), ExtResource("10_w4ck3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_x8yg7"), ExtResource("10_cbjcj"), ExtResource("9_x8yg7"), ExtResource("10_cbjcj"), ExtResource("9_x8yg7"), ExtResource("10_cbjcj")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7q5hn"]
+_data = {
+"RESET": SubResource("Animation_x7l20"),
+"grab": ExtResource("4_7u4j1"),
+"idle": ExtResource("2_sapmy"),
+"talk": SubResource("Animation_ohoqd"),
+"walk": SubResource("Animation_ulukt")
+}
+
+[node name="CharacterTibs" type="Area2D"]
+input_pickable = false
+script = ExtResource("1_8tcxj")
+flips_when = 2
+walk_speed = 150.0
+dialog_pos = Vector2(0, -50)
+popochiu_placeholder = null
+script_name = "Tibs"
+description = "Tibs"
+clickable = false
+cursor = 8
+interaction_polygon = PackedVector2Array(-8, -48, 8, -45, 9, 4, -10, 5)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-8, -48, 8, -45, 9, 4, -10, 5)
+
+[node name="ScalingPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7q5hn")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4, -22)
+texture = SubResource("CompressedTexture2D_i1pxk")

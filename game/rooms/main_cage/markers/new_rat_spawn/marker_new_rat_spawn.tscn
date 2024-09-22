@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://ewmvaosqvg38"]
+
+[node name="NewRatSpawn" type="Marker2D"]

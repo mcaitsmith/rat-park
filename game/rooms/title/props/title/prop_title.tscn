@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://crxc5qebvhfhv"]
+
+[ext_resource type="Script" path="res://game/rooms/title/props/title/prop_title.gd" id="1_vssiu"]
+[ext_resource type="Texture2D" uid="uid://cxcps4s081ysn" path="res://game/rooms/title/props/title/Title_0.png" id="2_yn36a"]
+[ext_resource type="Texture2D" uid="uid://u4palvr2rt1n" path="res://game/rooms/title/props/title/Title_1.png" id="3_okq11"]
+[ext_resource type="Texture2D" uid="uid://bqr4hiorrn1b3" path="res://game/rooms/title/props/title/Title_2.png" id="4_ekxtx"]
+
+[sub_resource type="Animation" id="Animation_wyh25"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_kmlmh"]
+resource_name = "title"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_yn36a"), ExtResource("3_okq11"), ExtResource("4_ekxtx")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yioo4"]
+_data = {
+"RESET": SubResource("Animation_wyh25"),
+"title": SubResource("Animation_kmlmh")
+}
+
+[node name="Title" type="Area2D"]
+input_pickable = false
+script = ExtResource("1_vssiu")
+script_name = "Title"
+description = "Title"
+clickable = false
+cursor = 1
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
+visible = false
+modulate = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yioo4")
+}

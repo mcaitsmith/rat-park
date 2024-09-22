@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://t011hna0ce2b"]
+
+[ext_resource type="Script" path="res://game/rooms/end/room_end_state.gd" id="1_loihk"]
+
+[resource]
+resource_name = "End"
+script = ExtResource("1_loihk")
+script_name = "End"
+scene = "res://game/rooms/end/room_end.tscn"
+visited = false
+visited_first_time = false
+visited_times = 0

@@ -1,0 +1,87 @@
+[gd_scene load_steps=17 format=3 uid="uid://bqbf60kfcsc3o"]
+
+[ext_resource type="Script" path="res://game/rooms/wheel_room/room_wheel_room.gd" id="1_xgqw0"]
+[ext_resource type="PackedScene" uid="uid://cxkerrrf14f1e" path="res://game/rooms/wheel_room/walkable_areas/floor/walkable_area_floor.tscn" id="2_38e75"]
+[ext_resource type="Texture2D" uid="uid://dfme67xmh016j" path="res://game/rooms/wheel_room/props/background/WheelRoom_Back_0.png" id="3_bg8wf"]
+[ext_resource type="PackedScene" uid="uid://7ejw4jhmh8t5" path="res://game/rooms/wheel_room/props/background/prop_background.tscn" id="3_qmehm"]
+[ext_resource type="PackedScene" uid="uid://bpjxec11e7lst" path="res://game/rooms/wheel_room/hotspots/left_hole/hotspot_left_hole.tscn" id="5_3tivd"]
+[ext_resource type="PackedScene" uid="uid://d3dcppji67klu" path="res://game/rooms/wheel_room/props/battery/prop_battery.tscn" id="5_5vsdv"]
+[ext_resource type="Texture2D" uid="uid://c4lbvp3bw1ns0" path="res://game/rooms/wheel_room/props/battery/WheelRoom_Battery_0.png" id="6_3vhfd"]
+[ext_resource type="PackedScene" uid="uid://le6dr4x2w2gj" path="res://game/rooms/wheel_room/props/wheel/prop_wheel.tscn" id="7_cq6i4"]
+[ext_resource type="Texture2D" uid="uid://c4jk347dhowdc" path="res://game/rooms/wheel_room/props/wheel/ExerciseWheelBack_0.png" id="8_op06i"]
+[ext_resource type="PackedScene" uid="uid://caeokdpsagx3d" path="res://game/rooms/wheel_room/props/wheel_front/prop_wheel_front.tscn" id="9_68h60"]
+[ext_resource type="Texture2D" uid="uid://13s4lwiak86i" path="res://game/rooms/wheel_room/props/wheel_front/ExerciseWheelFore_0.png" id="10_27ydq"]
+[ext_resource type="PackedScene" uid="uid://b6l7uew77ejvc" path="res://game/rooms/wheel_room/markers/zippy_walk_to/marker_zippy_walk_to.tscn" id="11_xauu6"]
+[ext_resource type="PackedScene" uid="uid://bd1uw6onrvgrg" path="res://game/rooms/wheel_room/markers/tibs_back_to/marker_tibs_back_to.tscn" id="12_32b75"]
+[ext_resource type="PackedScene" uid="uid://c7jgko752jcgi" path="res://game/characters/zippy/character_zippy.tscn" id="12_usnes"]
+[ext_resource type="PackedScene" uid="uid://d1a82vpnpeq4" path="res://game/rooms/wheel_room/markers/zippy_wheel/marker_zippy_wheel.tscn" id="13_8f586"]
+[ext_resource type="PackedScene" uid="uid://cs0mfva16x3ro" path="res://game/characters/lightbulb/character_lightbulb.tscn" id="14_vlsxs"]
+
+[node name="RoomWheelRoom" type="Node2D"]
+script = ExtResource("1_xgqw0")
+script_name = "WheelRoom"
+width = 480
+height = 200
+limit_left = -80.0
+limit_right = 400.0
+popochiu_placeholder = null
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Floor" parent="WalkableAreas" instance=ExtResource("2_38e75")]
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Background" parent="Props" instance=ExtResource("3_qmehm")]
+position = Vector2(160, 100)
+texture = ExtResource("3_bg8wf")
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="Battery" parent="Props" instance=ExtResource("5_5vsdv")]
+position = Vector2(160, 100)
+texture = ExtResource("6_3vhfd")
+baseline = -68
+walk_to_point = Vector2(-127.141, 6.07502)
+interaction_polygon = PackedVector2Array(-138, -59, -118, -58, -117, -17, -138, -18)
+
+[node name="Wheel" parent="Props" instance=ExtResource("7_cq6i4")]
+z_index = -1
+position = Vector2(160, 100)
+texture = ExtResource("8_op06i")
+
+[node name="WheelFront" parent="Props" instance=ExtResource("9_68h60")]
+z_index = 1
+position = Vector2(160, 100)
+texture = ExtResource("10_27ydq")
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="LeftHole" parent="Hotspots" instance=ExtResource("5_3tivd")]
+position = Vector2(-48, 92)
+baseline = -40
+walk_to_point = Vector2(49.0341, 34.7144)
+interaction_polygon = PackedVector2Array(-9, -19, -1, -28, 9, -18, 9, 15, -1, 27, -11, 13)
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="ZippyWalkTo" parent="Markers" instance=ExtResource("11_xauu6")]
+position = Vector2(88, 113)
+
+[node name="TibsBackTo" parent="Markers" instance=ExtResource("12_32b75")]
+position = Vector2(-2, 147)
+
+[node name="ZippyWheel" parent="Markers" instance=ExtResource("13_8f586")]
+position = Vector2(251, 98)
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="CharacterZippy *" parent="Characters" instance=ExtResource("12_usnes")]
+position = Vector2(251, 98)
+walk_to_point = Vector2(5.64108, 50.3359)
+
+[node name="CharacterLightbulb *" parent="Characters" instance=ExtResource("14_vlsxs")]
+position = Vector2(160, 100)
+baseline = -102
+walk_to_point = Vector2(-152.309, 13.4518)

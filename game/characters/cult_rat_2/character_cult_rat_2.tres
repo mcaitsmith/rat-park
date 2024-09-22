@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bojtf5p1eekub"]
+
+[ext_resource type="Script" path="res://game/characters/cult_rat_2/character_cult_rat_2_state.gd" id="1_kgu1h"]
+
+[resource]
+resource_name = "CultRat2"
+script = ExtResource("1_kgu1h")
+script_name = "CultRat2"
+scene = "res://game/characters/cult_rat_2/character_cult_rat_2.tscn"

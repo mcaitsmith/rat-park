@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://docwy1yydt1ii"]
+
+[ext_resource type="Texture2D" uid="uid://wre3lyrqeci0" path="res://game/inventory_items/glyph_w/W_0.png" id="1_11rx4"]
+[ext_resource type="Script" path="res://game/inventory_items/glyph_w/inventory_item_glyph_w.gd" id="1_gqq2q"]
+
+[node name="ItemGlyphW" type="TextureRect"]
+texture_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("1_11rx4")
+stretch_mode = 5
+script = ExtResource("1_gqq2q")
+script_name = "GlyphW"
+description = "Glyph W"
