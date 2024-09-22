@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AudioCueSound" load_steps=3 format=3 uid="uid://pb41n8s5jg21"]
+
+[ext_resource type="AudioStream" uid="uid://d1uln45djrw4c" path="res://game/rooms/main_cage/audio/injection.ogg" id="1_it05l"]
+[ext_resource type="Script" path="res://addons/popochiu/engine/audio_manager/audio_cue_sound.gd" id="2_4yle6"]
+
+[resource]
+resource_name = "injection"
+script = ExtResource("2_4yle6")
+audio = ExtResource("1_it05l")
+loop = false
+is_2d = false
+can_play_simultaneous = true
+pitch = 0.0
+volume = 0.0
+rnd_pitch = Vector2(0, 0)
+rnd_volume = Vector2(0, 0)
+max_distance = 2000
+bus = "Master"

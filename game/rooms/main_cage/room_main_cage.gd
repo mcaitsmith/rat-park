@@ -44,24 +44,32 @@ func _on_room_entered() -> void:
 # What happens when the room changing transition finishes. At this point the room
 # is visible.
 func _on_room_transition_finished() -> void:
+	E.am.play_sound_cue("squeak")
+	await C.Rat1.say("SQUEAK!")
+	E.am.play_sound_cue("squeak")
+	await C.Rat2.say("SQUEAK!!")
+	E.am.play_sound_cue("squeak")
+	await C.player.say("SQUEAK!!!")
 	# You can use await E.queue([]) to excecute a sequence of instructions
 	if not E.start:
 		await E.queue([
-			await C.Rat1.queue_say("SQUEAK!"),
-			await C.Rat2.queue_say("SQUEAK!!"),
-			await C.player.queue_say("SQUEAK!!!"),
 			await R.get_prop("CageDoor").queue_disable(),
 			await C.Hand.queue_walk_to_marker("PickupPoint"),
 			await C.player.queue_disable(),
-			await C.Hand.queue_walk_to_marker("AboveCage"),
-			await C.Hand.queue_say("Scientist 1: Prepping compound XC-146 into the delivery syringe."),
-			await C.Hand.queue_say("Scientist 2: Restraining specimen, Tibs, for receiving of the compound."),
-			await C.Hand.queue_say("Scientist 1: Preparing to deliver compound."),
-			await C.Hand.queue_say("Scientist 2: What’s that… Hey! Stupid rat is peeing on me!"),
-			await C.Hand.queue_say("Scientist 1: Oh… that is…unfortunate."),
-			await C.Hand.queue_say("Scientist 2: Just inject the compound into this little idiot so I can wash my hands."),
-			await C.Hand.queue_say("Scientist 1: Compound has been…delivered directly into the frontal cortex. We shall check back in three hours to monitor intellectual development."),
-			await C.Hand.queue_say("Scientist 2: Stupid rat…"),
+			await C.Hand.queue_walk_to_marker("AboveCage")
+		])
+		C.player.can_move = false
+		await C.Hand.say("Scientist 1: Prepping compound XC-146 into the delivery syringe.")
+		await C.Hand.say("Scientist 2: Restraining specimen, Tibs, for receiving of the compound.")
+		await C.Hand.say("Scientist 1: Preparing to deliver compound.")
+		await C.Hand.say("Scientist 2: What’s that… Hey! Stupid rat is peeing on me!")
+		await C.Hand.say("Scientist 1: Oh… that is…unfortunate.")
+		await C.Hand.say("Scientist 2: Just inject the compound into this little idiot so I can wash my hands.")
+		await E.am.play_sound_cue("injection")
+		await E.wait(2.0)
+		await C.Hand.say("Scientist 1: Compound has been…delivered directly into the frontal cortex. We shall check back in three hours to monitor intellectual development.")
+		await C.Hand.say("Scientist 2: Stupid rat…")
+		await E.queue([
 			await C.Hand.queue_walk_to_marker("PickupPoint"),
 			await C.player.queue_enable(),
 			await C.Hand.queue_walk_to_marker("AboveCage"),
@@ -71,6 +79,7 @@ func _on_room_transition_finished() -> void:
 			await C.player.queue_say("Squeak. Squeak. Sque- ow. Head hurts. Why head hurt?"),
 			await C.player.queue_say("Head. Noisy. Why Tibs noisy head?")
 		])
+		C.player.can_move = true
 		C.player.get_node("AnimationPlayer").get_animation("idle").track_set_enabled(0,false)
 		C.player.get_node("AnimationPlayer").get_animation("idle").track_set_enabled(1,true)
 		C.player.get_node("AnimationPlayer").get_animation("talk").track_set_enabled(0,false)

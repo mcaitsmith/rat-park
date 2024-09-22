@@ -53,8 +53,9 @@ func _on_item_used(_item: PopochiuInventoryItem) -> void:
 		I.Battery.remove()
 		R.get_prop("Battery").visible = true
 		E.scraps_dead = true
+		# shock SFX
+		E.am.play_sound_cue("electrocute")
 		await E.queue([
-			# shock SFX
 			await C.Scraps.queue_play_animation("shock"),
 			await C.Scraps.queue_play_animation("dead"),
 			await C.Scraps.queue_pause_animation(),

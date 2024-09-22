@@ -39,10 +39,13 @@ func _option_selected(opt: PopochiuDialogOption) -> void:
 				await C.Rat1.queue_walk_to_prop("Screw"),
 				await C.player.queue_face_right(),
 				await C.Rat1.queue_say("Getting tired…head feel good. Chest feel good."),
-				await C.Rat1.queue_say("Rat take nap now…"),
-				await C.Rat1.queue_play_animation("dead"),
-				await C.Rat1.queue_pause_animation(),
-				await E.queue_wait(2.0),
+				await C.Rat1.queue_say("Rat take nap now…")
+			])
+			E.am.play_sound_cue("thump")
+			await C.Rat1.play_animation("dead")
+			await C.Rat1.pause_animation()
+			await E.wait(1.0)
+			await E.queue([
 				await C.Hand.queue_say("Scientist 1: Ah, we’ve got another one!"),
 				await R.get_prop("CageDoor").queue_disable(),
 				await C.Hand.queue_walk_to_prop("Screw"),
