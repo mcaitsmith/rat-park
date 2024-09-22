@@ -87,6 +87,7 @@ func check_battery() -> void:
 	if not E.used_highlighter:
 		R.get_prop("Wheel").find_child("AnimationPlayer").stop()
 		R.get_prop("WheelFront").find_child("AnimationPlayer").stop()
+		E.am.stop("wheelrattle")
 		C.Zippy.get_node("AnimationPlayer").get_animation("idle").track_set_enabled(0,false)
 		C.Zippy.get_node("AnimationPlayer").get_animation("idle").track_set_enabled(1,true)
 		C.Zippy.get_node("AnimationPlayer").get_animation("talk").track_set_enabled(0,false)
@@ -107,6 +108,7 @@ func check_battery() -> void:
 		])
 		R.get_prop("Wheel").find_child("AnimationPlayer").play("wheelmove")
 		R.get_prop("WheelFront").find_child("AnimationPlayer").play("wheelmove")
+		E.am.play_sound_cue("wheelrattle")
 		C.Zippy.get_node("AnimationPlayer").get_animation("idle").track_set_enabled(1,false)
 		C.Zippy.get_node("AnimationPlayer").get_animation("idle").track_set_enabled(0,true)
 		C.Zippy.get_node("AnimationPlayer").get_animation("talk").track_set_enabled(1,false)

@@ -9,4 +9,5 @@ var injection: AudioCueSound = load("res://game/rooms/main_cage/audio/injection.
 var shock: AudioCueSound = load("res://game/rooms/cheese_room/audio/shock.tres")
 var squeak: AudioCueSound = load("res://game/rooms/main_cage/audio/squeak.tres")
 var thump: AudioCueSound = load("res://game/rooms/main_cage/audio/thump.tres")
+var wheelrattle: AudioCueSound = load("res://game/rooms/wheel_room/audio/wheelrattle.tres")
 # ---- cues

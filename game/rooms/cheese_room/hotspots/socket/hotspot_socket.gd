@@ -55,11 +55,12 @@ func _on_item_used(_item: PopochiuInventoryItem) -> void:
 		E.scraps_dead = true
 		# shock SFX
 		E.am.play_sound_cue("electrocute")
+		await C.Scraps.play_animation("shock")
+		E.am.play_sound_cue("thump")
+		await C.Scraps.play_animation("dead")
+		await C.Scraps.pause_animation()
+		await E.wait(2.0)
 		await E.queue([
-			await C.Scraps.queue_play_animation("shock"),
-			await C.Scraps.queue_play_animation("dead"),
-			await C.Scraps.queue_pause_animation(),
-			await E.queue_wait(2.0),
 			await C.player.queue_say("Oh whoops…"),
 			await C.player.queue_say("Sorry…"),
 			await C.player.queue_say("…Are you okay?"),

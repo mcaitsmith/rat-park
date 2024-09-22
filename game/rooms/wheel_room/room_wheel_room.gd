@@ -13,6 +13,7 @@ func _on_room_entered() -> void:
 	#C.Zippy.play_animation("walk_wheel")
 	R.get_prop("Wheel").find_child("AnimationPlayer").play("wheelmove")
 	R.get_prop("WheelFront").find_child("AnimationPlayer").play("wheelmove")
+	E.am.play_sound_cue("wheelrattle")
 	C.Zippy.face_left()
 	if E.used_highlighter:
 		await C.Lightbulb.play_animation("highlight_on")
@@ -37,7 +38,8 @@ func _on_room_transition_finished() -> void:
 # At this point, the screen is black, processing is disabled and all characters
 # have been removed from the $Characters node.
 func _on_room_exited() -> void:
-	pass
+	E.am.stop("wheelrattle")
+	#pass
 
 
 #endregion
