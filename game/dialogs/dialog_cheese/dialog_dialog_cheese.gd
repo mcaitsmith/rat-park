@@ -27,7 +27,9 @@ func _option_selected(opt: PopochiuDialogOption) -> void:
 			await C.Scraps.say("Incredibly. But I won’t let the cheese win!")
 			await C.Scraps.face_left()
 			await C.Scraps.play_animation("walk")
+			C.Scraps.play_animation("smallshock")
 			# shock SFX
+			await E.am.play_sound_cue("shock")
 		'Opt3':
 			await C.Scraps.say("What do you know, stupid rat?")
 			await C.player.say("Well, it looks like that cylinder over there is making it shocky.")

@@ -98,8 +98,9 @@ func on_talk_to() -> void:
 		await C.Scraps.say("What’s it look like? I’m having a meal.")
 		await C.Scraps.face_left()
 		await C.Scraps.play_animation("walk")
-		await C.Scraps.play_animation("smallshock")
+		C.Scraps.play_animation("smallshock")
 		# shock SFX
+		await E.am.play_sound_cue("shock")
 		await D.DialogCheese.start()
 	elif not E.scraps_dead:
 		await C.Scraps.say("Can’t talk….*munch*…Busy…")

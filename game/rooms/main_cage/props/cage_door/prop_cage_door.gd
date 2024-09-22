@@ -89,21 +89,22 @@ func check_cage() -> void:
 		await C.player.say("Scraps is in position but I still need to get that screw taken out…")
 	elif E.remove_screw and E.move_scraps:
 		# ESCAPE
-		await E.queue([
-			await C.Hand.queue_say("Scientist: Oh jeez, looks like we lost another one. I’ll remove him from the cage real quick."),
-			await R.get_prop("CageDoor").queue_disable(),
-			await C.Hand.queue_walk_to_marker("ScrapsPos"),
-			#noise to indicate door falling off hinges
-			await C.Hand.queue_say("Scientist: What? How’d that happen?"),
-			await C.Hand.queue_walk_to_marker("AboveCage"),
-			await C.player.queue_say("Quick everyone! Now’s our chance!"),
-			await C.Rat2.queue_walk_to_marker("TibsPos"),
-			await C.Rat1.queue_enable(),
-			await C.Rat1.queue_teleport_to_marker("NewRatSpawn"),
-			await C.Rat1.queue_walk_to_marker("NewRatPos"),
-			await C.Rat1.queue_face_left(),
-			await C.Rat2.queue_say("What? Why would we leave?"),
-			await D.DialogFinal.queue_start()
-		])
+		#await E.queue([
+		await C.Hand.say("Scientist: Oh jeez, looks like we lost another one. I’ll remove him from the cage real quick.")
+		await R.get_prop("CageDoor").disable()
+		await C.Hand.walk_to_marker("ScrapsPos")
+		#noise to indicate door falling off hinges
+		await E.am.play_sound_cue("cagecrash")
+		await C.Hand.say("Scientist: What? How’d that happen?")
+		await C.Hand.walk_to_marker("AboveCage")
+		await C.player.say("Quick everyone! Now’s our chance!")
+		await C.Rat2.walk_to_marker("TibsPos")
+		await C.Rat1.enable()
+		await C.Rat1.teleport_to_marker("NewRatSpawn")
+		await C.Rat1.walk_to_marker("NewRatPos")
+		await C.Rat1.face_left()
+		await C.Rat2.say("What? Why would we leave?")
+		await D.DialogFinal.start()
+		#])
 
 #endregion
