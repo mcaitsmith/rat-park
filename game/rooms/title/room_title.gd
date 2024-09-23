@@ -14,6 +14,8 @@ func _on_room_entered() -> void:
 	E.gui.visible = false
 	R.get_prop("Title").find_child("AnimationPlayer").play("title")
 	E.am.play_music_cue("bgmusic")
+	
+
 	#pass
 
 

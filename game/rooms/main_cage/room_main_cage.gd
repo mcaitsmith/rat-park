@@ -5,10 +5,6 @@ const Data := preload('room_main_cage_state.gd')
 
 var state: Data = load("res://game/rooms/main_cage/room_main_cage.tres")
 
-#var start = false
-#var looked_at_cage = false
-#var bottle_rat_dead = false
-
 #region Virtual ####################################################################################
 # What happens when Popochiu loads the room. At this point the room is in the
 # tree but it is not visible

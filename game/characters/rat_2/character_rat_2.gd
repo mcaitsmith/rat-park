@@ -25,7 +25,6 @@ func _on_click() -> void:
 	await C.player.face_clicked()
 
 
-
 func _on_double_click() -> void:
 	# Replace the call to E.command_fallback() with your code.
 	E.command_fallback()
