@@ -31,7 +31,7 @@ func _option_selected(opt: PopochiuDialogOption) -> void:
 			await C.Rat1.say("Special juice not bad!")
 			await C.Rat2.say("Special juice better than water! If Tibs weren’t stupid, Tibs would know that!")
 			await C.Rat1.say("Me drink more special juice because Tibs say that!")
-			E.bottle_rat_dead = true
+			Globals.bottle_rat_dead = true
 			await E.queue([
 				await C.Rat1.queue_face_left(),
 				await E.queue_wait(1.0),

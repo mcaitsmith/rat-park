@@ -41,7 +41,7 @@ func _option_selected(opt: PopochiuDialogOption) -> void:
 					await C.player.say("X.")
 					await C.Nibbles.say("Sure thing.")
 					I.GlyphX.add()
-					E.got_glyphX = true
+					Globals.got_glyphX = true
 					stop()
 				"3":
 					await C.player.say("Q.")

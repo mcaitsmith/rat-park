@@ -72,7 +72,7 @@ func on_use() -> void:
 func check_cheese() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_right()
-	if not E.scraps_dead:
+	if not Globals.scraps_dead:
 		await C.Scraps.say("Don’t even think about it, runt!")
 
 

@@ -44,12 +44,12 @@ func _on_item_used(_item: PopochiuInventoryItem) -> void:
 	#E.command_fallback()
 	# For example, you can make the player character say something when the Key item is used in this
 	# prop. Note that you have to change the name of the `_item` parameter to `item`.
-	if _item == I.GlyphX and not E.remove_screw:
+	if _item == I.GlyphX and not Globals.remove_screw:
 		I.GlyphX.remove()
 		R.get_prop("Screw").hide()
 		I.Screw.add()
-		E.remove_screw = true
-		if not E.move_scraps:
+		Globals.remove_screw = true
+		if not Globals.move_scraps:
 			await C.player.say("I got the screw removed. Still need to find a way to get humans to open the door though.")
 			await C.player.say("They seem to only do it when a rat takes a long nap.")
 
@@ -74,18 +74,18 @@ func _on_linked_item_discarded() -> void:
 func on_look_at() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
-	if E.looked_at_cage and E.bottle_rat_dead and not E.remove_screw and not E.move_scraps:
+	if Globals.looked_at_cage and Globals.bottle_rat_dead and not Globals.remove_screw and not Globals.move_scraps:
 		await C.player.say("I still need remove that screw and find a way to get humans to open that door. They seem to only do it when a rat takes a long nap.")
-	elif not E.remove_screw and not E.move_scraps:
+	elif not Globals.remove_screw and not Globals.move_scraps:
 		await C.player.say("Head became noisy after human pulled me through door. Maybe I can get outside again?")
 		await C.player.say("Hmm. This screw looks like it could come out easily. Maybe Tibs needs a tool?")
 		await C.player.face_down()
-		if not E.looked_at_cage:
-			E.looked_at_cage = true
-	elif E.remove_screw and not E.move_scraps:
+		if not Globals.looked_at_cage:
+			Globals.looked_at_cage = true
+	elif Globals.remove_screw and not Globals.move_scraps:
 		await C.player.say("I got the screw removed. Still need to find a way to get humans to open the door though.")
 		await C.player.say("They seem to only do it when a rat takes a long nap.")
-	elif not E.remove_screw and E.move_scraps:
+	elif not Globals.remove_screw and Globals.move_scraps:
 		await C.player.say("Scraps is in position but I still need to get that screw taken out…")
 
 

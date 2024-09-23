@@ -46,13 +46,13 @@ func _on_item_used(_item: PopochiuInventoryItem) -> void:
 	#E.command_fallback()
 	# For example, you can make the player character say something when the Key item is used in this
 	# hotspot. Note that you have to change the name of the `_item` parameter to `item`.
-	if _item == I.Battery and E.charged_battery:
+	if _item == I.Battery and Globals.charged_battery:
 		await C.player.walk_to_clicked()
 		await C.player.face_left()
 		await C.player.say("Wonder what this does…")
 		I.Battery.remove()
 		R.get_prop("Battery").visible = true
-		E.scraps_dead = true
+		Globals.scraps_dead = true
 		# shock SFX
 		E.am.play_sound_cue("electrocute")
 		await C.Scraps.play_animation("shock")

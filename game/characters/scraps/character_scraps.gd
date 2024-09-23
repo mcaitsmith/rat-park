@@ -92,7 +92,7 @@ func _on_move_ended() -> void:
 func on_talk_to() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
-	if not E.got_battery:
+	if not Globals.got_battery:
 		await C.Scraps.face_right()
 		await C.player.say("What are you doing?")
 		await C.Scraps.say("What’s it look like? I’m having a meal.")
@@ -102,7 +102,7 @@ func on_talk_to() -> void:
 		# shock SFX
 		await E.am.play_sound_cue("shock")
 		await D.DialogCheese.start()
-	elif not E.scraps_dead:
+	elif not Globals.scraps_dead:
 		await C.Scraps.say("Can’t talk….*munch*…Busy…")
 		C.Scraps.play_animation("chew")
 
@@ -113,9 +113,9 @@ func on_pull() -> void:
 	await self.move_body()
 
 func move_body() -> void:
-	if E.scraps_dead:
-		E.move_scraps = true
-		E.player_pos = "move_scraps"
+	if Globals.scraps_dead:
+		Globals.move_scraps = true
+		Globals.player_pos = "move_scraps"
 		await C.player.walk_to_clicked()
 		await C.player.face_clicked()
 		await E.goto_room("MainCage")

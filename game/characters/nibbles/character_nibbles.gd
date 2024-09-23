@@ -92,7 +92,7 @@ func _on_move_ended() -> void:
 func on_talk_to() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
-	if not E.got_glyph1:
+	if not Globals.got_glyph1:
 		await C.player.say("What are you doing?")
 		await C.Nibbles.say("Attempting to recreate the sacred glyphs.")
 		await C.Nibbles.say("Putting them on the tips of these wood chips.")

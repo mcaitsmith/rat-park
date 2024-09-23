@@ -76,12 +76,12 @@ func on_pick_up() -> void:
 	await self.check_hl()
 	
 func check_hl() -> void:
-	if not E.got_highlighter:
+	if not Globals.got_highlighter:
 		await C.player.walk_to_clicked()
 		await C.player.face_left()
 		R.get_prop("HighlighterTip").hide()
 		I.HighlighterTip.add()
-		E.got_highlighter = true
+		Globals.got_highlighter = true
 
 
 #endregion

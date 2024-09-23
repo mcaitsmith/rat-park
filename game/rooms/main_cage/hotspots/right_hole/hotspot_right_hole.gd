@@ -67,8 +67,8 @@ func on_use() -> void:
 func check_hole() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
-	if E.bottle_rat_dead and E.looked_at_cage:
-		E.player_pos = "left" # set start position in next room
+	if Globals.bottle_rat_dead and Globals.looked_at_cage:
+		Globals.player_pos = "left" # set start position in next room
 		await E.goto_room("WheelRoom")
 	else:
 		await C.player.say("Tibs not want to go yet. Should look around first.")

@@ -16,13 +16,13 @@ func _on_room_entered() -> void:
 	A.wheelrattle.loop = true
 	E.am.play_sound_cue("wheelrattle")
 	C.Zippy.face_left()
-	if E.used_highlighter:
+	if Globals.used_highlighter:
 		await C.Lightbulb.play_animation("highlight_on")
 		await C.Lightbulb.pause_animation()
-	if E.player_pos == "right":
+	if Globals.player_pos == "right":
 		#await C.player.teleport_to_hotspot("RightHole")
 		await C.player.face_left()
-	elif E.player_pos == "left":
+	elif Globals.player_pos == "left":
 		await C.player.teleport_to_hotspot("LeftHole")
 		await C.player.face_right()
 	#pass

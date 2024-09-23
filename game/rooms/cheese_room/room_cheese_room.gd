@@ -11,23 +11,23 @@ var state: Data = load("res://game/rooms/cheese_room/room_cheese_room.tres")
 # tree but it is not visible
 func _on_room_entered() -> void:
 	await C.Scraps.face_left()
-	if not E.got_battery:
+	if not Globals.got_battery:
 		R.get_hotspot("Socket").disable()
-	elif not E.scraps_dead:
+	elif not Globals.scraps_dead:
 		R.get_hotspot("Socket").enable()
-	if E.scraps_dead and not E.move_scraps:
+	if Globals.scraps_dead and not Globals.move_scraps:
 		await C.Scraps.play_animation("dead")
 		await C.Scraps.pause_animation()
-	elif E.move_scraps:
+	elif Globals.move_scraps:
 		C.Scraps.disable()
-	if E.got_battery and not E.scraps_dead:
+	if Globals.got_battery and not Globals.scraps_dead:
 		R.get_prop("Battery").visible = false
-	elif E.scraps_dead:
+	elif Globals.scraps_dead:
 		R.get_prop("Battery").visible = true
-	if E.player_pos == "right":
+	if Globals.player_pos == "right":
 		await C.player.teleport_to_hotspot("RightHole")
 		await C.player.face_left()
-	elif E.player_pos == "left":
+	elif Globals.player_pos == "left":
 		#await C.player.teleport_to_hotspot("LeftHole")
 		await C.player.face_right()
 	#pass
@@ -37,7 +37,7 @@ func _on_room_entered() -> void:
 # is visible.
 func _on_room_transition_finished() -> void:
 	# You can use await E.queue([]) to excecute a sequence of instructions
-	if E.got_battery and not E.scraps_dead:
+	if Globals.got_battery and not Globals.scraps_dead:
 		await C.Scraps.say("*munch* *munch* *nom* *nom*")
 		C.Scraps.play_animation("chew")
 	#pass

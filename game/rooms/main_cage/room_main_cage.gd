@@ -17,10 +17,10 @@ func _on_room_entered() -> void:
 	if A.wheelrattle.is_playing():
 		A.wheelrattle.stop()
 		E.am.stop("wheelrattle")
-	if not E.start:
+	if not Globals.start:
 		C.player.visible = true
 		E.gui.visible = true
-	if not E.move_scraps:
+	if not Globals.move_scraps:
 		C.Scraps.disable()
 	else:
 		C.Scraps.enable()
@@ -28,17 +28,17 @@ func _on_room_entered() -> void:
 		await C.Scraps.play_animation("dead")
 		await C.Scraps.pause_animation()
 		
-	if E.bottle_rat_dead == true:
+	if Globals.bottle_rat_dead == true:
 		await C.Rat1.disable()
 	else:
 		await C.Rat1.face_left()
-	if E.player_pos == "right":
+	if Globals.player_pos == "right":
 		await C.player.teleport_to_hotspot("RightHole")
 		await C.player.face_left()
-	elif E.player_pos == "left":
+	elif Globals.player_pos == "left":
 		await C.player.teleport_to_hotspot("LeftHole")
 		await C.player.face_right()
-	elif E.player_pos == "move_scraps":
+	elif Globals.player_pos == "move_scraps":
 		await C.player.teleport_to_marker("TibsPos")
 		await C.player.face_right()
 
@@ -49,7 +49,7 @@ func _on_room_entered() -> void:
 # is visible.
 func _on_room_transition_finished() -> void:
 	# You can use await E.queue([]) to excecute a sequence of instructions
-	if not E.start:
+	if not Globals.start:
 		C.player.can_move = false
 		await E.am.play_sound_cue("squeak")
 		await E.wait(0.5)
@@ -100,7 +100,7 @@ func _on_room_transition_finished() -> void:
 		C.player.get_node("AnimationPlayer").get_animation("idle").track_set_enabled(1,true)
 		C.player.get_node("AnimationPlayer").get_animation("talk").track_set_enabled(0,false)
 		C.player.get_node("AnimationPlayer").get_animation("talk").track_set_enabled(1,true)
-		E.start = true
+		Globals.start = true
 	#pass
 
 

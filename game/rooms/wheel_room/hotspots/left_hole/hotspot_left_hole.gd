@@ -67,7 +67,7 @@ func on_use() -> void:
 func check_hole() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
-	E.player_pos = "right" # set start position in next room
+	Globals.player_pos = "right" # set start position in next room
 	await E.goto_room("MainCage")
 
 

@@ -57,7 +57,7 @@ func _on_item_used(_item: PopochiuInventoryItem) -> void:
 		I.HighlighterTip.remove()
 		await C.Lightbulb.play_animation("highlight_on")
 		await C.Lightbulb.pause_animation()
-		E.used_highlighter = true
+		Globals.used_highlighter = true
 #		await C.player.say("I don't want to give up my key")
 
 

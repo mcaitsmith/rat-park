@@ -12,13 +12,13 @@ var state: Data = load("res://game/rooms/cult_room/room_cult_room.tres")
 func _on_room_entered() -> void:
 	await C.Nibbles.face_left()
 	C.Nibbles.play_animation("chew")
-	if E.player_pos == "right":
+	if Globals.player_pos == "right":
 		await C.player.teleport_to_hotspot("RightHole")
 		await C.player.face_left()
-	elif E.player_pos == "left":
+	elif Globals.player_pos == "left":
 		await C.player.teleport_to_hotspot("LeftHole")
 		await C.player.face_right()
-	if E.got_highlighter:
+	if Globals.got_highlighter:
 		R.get_prop("HighlighterTip").hide()
 	#pass
 

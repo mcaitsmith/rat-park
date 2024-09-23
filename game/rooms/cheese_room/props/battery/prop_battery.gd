@@ -65,7 +65,7 @@ func _on_linked_item_discarded() -> void:
 func on_look_at() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
-	if E.talk_scraps and not E.got_battery:
+	if Globals.talk_scraps and not Globals.got_battery:
 		await C.player.say("It’s one of those shocky cylinders.")
 		
 func on_pick_up() -> void:
@@ -80,11 +80,11 @@ func on_use() -> void:
 func check_battery() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
-	if E.talk_scraps and not E.got_battery:
+	if Globals.talk_scraps and not Globals.got_battery:
 		await C.player.say("I think I’ll take it.")
 		R.get_prop("Battery").visible = false
 		I.Battery.add()
-		E.got_battery = true
+		Globals.got_battery = true
 		await C.Scraps.face_left()
 		await C.Scraps.say("*munch* *munch* *nom* *nom*")
 		C.Scraps.play_animation("chew")

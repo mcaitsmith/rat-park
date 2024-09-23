@@ -42,7 +42,7 @@ func _on_item_used(_item: PopochiuInventoryItem) -> void:
 	#E.command_fallback()
 	# For example, you can make the player character say something when the Key item is used in this
 	# prop. Note that you have to change the name of the `_item` parameter to `item`.
-	if _item == I.Battery and E.got_battery and not E.charged_battery:
+	if _item == I.Battery and Globals.got_battery and not Globals.charged_battery:
 		await self.check_battery()
 #		await C.player.say("I can't do that")
 
@@ -67,7 +67,7 @@ func _on_linked_item_discarded() -> void:
 func on_look_at() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
-	if not E.used_highlighter:
+	if not Globals.used_highlighter:
 		await C.player.say("Ooo it’s hot. Staticky.")
 	else:
 		await C.player.say("Ooo Yellow.")
@@ -84,7 +84,7 @@ func on_pull() -> void:
 func check_battery() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
-	if not E.used_highlighter:
+	if not Globals.used_highlighter:
 		R.get_prop("Wheel").find_child("AnimationPlayer").stop()
 		R.get_prop("WheelFront").find_child("AnimationPlayer").stop()
 		E.am.stop("wheelrattle")
@@ -114,7 +114,7 @@ func check_battery() -> void:
 		C.Zippy.get_node("AnimationPlayer").get_animation("talk").track_set_enabled(1,false)
 		C.Zippy.get_node("AnimationPlayer").get_animation("talk").track_set_enabled(0,true)
 		#C.Zippy.play_animation("walk_wheel")
-	elif E.got_battery and not E.charged_battery:
+	elif Globals.got_battery and not Globals.charged_battery:
 		C.player.say("Now to just swipe the metal box…")
 		await E.queue([
 			await R.current.get_prop("Battery").queue_disable(),
@@ -125,7 +125,7 @@ func check_battery() -> void:
 			await C.Lightbulb.queue_play_animation("highlight_on"),
 			await C.Lightbulb.queue_pause_animation()
 		])
-		E.charged_battery = true
+		Globals.charged_battery = true
 
 
 #endregion

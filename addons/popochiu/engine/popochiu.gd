@@ -45,23 +45,6 @@ signal await_stopped
 ## Path to the script with the class used to save and load game data.
 const SAVELOAD_PATH := "res://addons/popochiu/engine/others/popochiu_save_load.gd"
 
-## initial position of player when enter room
-var player_pos := ""
-
-var start = false # starting cutscene
-var looked_at_cage = false
-var bottle_rat_dead = false
-var got_highlighter = false
-var got_glyph1 = false
-var got_glyphX = false
-var talk_scraps = false
-var got_battery = false
-var used_highlighter = false
-var charged_battery = false
-var scraps_dead = false
-var move_scraps = false
-var remove_screw = false
-
 ## Used to prevent going to another room when there is one being loaded.
 var in_room := false : set = _set_in_room
 ## @deprecated

@@ -36,7 +36,7 @@ func _option_selected(opt: PopochiuDialogOption) -> void:
 			await C.Scraps.say("How do you know that?")
 			await C.player.say("Hmm. I’m not sure actually.")
 			await C.Scraps.say("Sounds like you’re making stuff up.")
-			E.talk_scraps = true
+			Globals.talk_scraps = true
 			stop()
 		_:
 			# By default close the dialog. Options won't show after calling

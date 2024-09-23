@@ -89,7 +89,7 @@ func _on_move_ended() -> void:
 # You can add here functions triggered by the GUI commands. For example, if your GUI has a command
 # for look_at, you could have the function:
 func on_look_at() -> void:
-	if not E.bottle_rat_dead:
+	if not Globals.bottle_rat_dead:
 		await C.player.walk_to_clicked()
 		await C.player.face_clicked()
 		await C.player.say("Those other rats really like drinking that water…")
@@ -97,7 +97,7 @@ func on_look_at() -> void:
 		pass
 		
 func on_talk_to() -> void:
-	if not E.bottle_rat_dead:
+	if not Globals.bottle_rat_dead:
 		await C.player.walk_to_clicked()
 		await C.player.face_clicked()
 		await C.Rat1.face_right()
