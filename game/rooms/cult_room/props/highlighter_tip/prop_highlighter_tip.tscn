@@ -1,15 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://khukqe4fp4f1"]
+[gd_scene load_steps=3 format=3 uid="uid://khukqe4fp4f1"]
 
 [ext_resource type="Script" path="res://game/rooms/cult_room/props/highlighter_tip/prop_highlighter_tip.gd" id="1_mrt0p"]
+[ext_resource type="Texture2D" uid="uid://csdydqesh7mnl" path="res://game/rooms/cult_room/props/highlighter_tip/CultRoom_HighlighterTip_0.png" id="2_7u3ha"]
 
 [node name="HighlighterTip" type="Area2D"]
 input_pickable = false
 script = ExtResource("1_mrt0p")
+texture = ExtResource("2_7u3ha")
 script_name = "HighlighterTip"
 description = "Highlighter Tip"
 clickable = false
 cursor = 1
-interaction_polygon = PackedVector2Array()
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="InteractionPolygon" type="CollisionPolygon2D" parent="."]
 visible = false
@@ -18,5 +20,6 @@ polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+texture = ExtResource("2_7u3ha")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

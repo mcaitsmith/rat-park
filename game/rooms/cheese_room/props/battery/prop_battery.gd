@@ -8,41 +8,23 @@ extends PopochiuProp
 #region Virtual ####################################################################################
 # When the node is clicked
 func _on_click() -> void:
-	# Replace the call to E.command_fallback() to implement your code.
-	#E.command_fallback()
-	# For example, you can make the player character walk to this prop, gaze at it, and then say
-	# something:
-	await C.player.walk_to_clicked()
-	await C.player.face_clicked()
+	E.command_fallback() # must be called for unhandled 9 verbs
 
 func _on_double_click() -> void:
-	# Replace the call to E.command_fallback() with your code.
 	E.command_fallback()
-	# For example, you could make the player instantly do something instead of walking there first
-
 
 # When the node is right clicked
 func _on_right_click() -> void:
-	# Replace the call to E.command_fallback() to implement your code.
 	E.command_fallback()
-	# For example, you can make the player character gaze at this prop and then say something:
-#	await C.player.face_clicked()
-#	await C.player.say("A deck of cards")
-
 
 # When the node is middle clicked
 func _on_middle_click() -> void:
-	# Replace the call to E.command_fallback() to implement your code.
 	E.command_fallback()
 
 
 # When the node is clicked and there is an inventory item selected
 func _on_item_used(_item: PopochiuInventoryItem) -> void:
-	# Replace the call to E.command_fallback() to implement your code.
-	E.command_fallback()
-	# For example, you can make the player character say something when the Key item is used in this
-	# prop. Note that you have to change the name of the `_item` parameter to `item`.
-		#		await C.player.say("I can't do that")
+	E.command_fallback() # must be called for unhandled items
 
 
 # When an inventory item linked to this Prop (link_to_item) is removed from
@@ -65,30 +47,30 @@ func _on_linked_item_discarded() -> void:
 func on_look_at() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
-	if Globals.talk_scraps and not Globals.got_battery:
-		await C.player.say("It’s one of those shocky cylinders.")
+	await C.player.say("This cylinder is shocky.")
 		
 func on_pick_up() -> void:
-	await self.check_battery()
+	await C.player.walk_to_clicked()
+	await C.player.face_clicked()
+	await C.player.say("Argh. Tibs need to get it out first.")
 	
 func on_pull() -> void:
-	await self.check_battery()
-	
-func on_use() -> void:
 	await self.check_battery()
 	
 func check_battery() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
-	if Globals.talk_scraps and not Globals.got_battery:
-		await C.player.say("I think I’ll take it.")
-		R.get_prop("Battery").visible = false
+	if Globals.talk_scraps:
+		await C.player.say("Tibs got it.")
+		R.get_prop("Battery").hide()
+		R.get_hotspot("Socket").show()
 		I.Battery.add()
-		Globals.got_battery = true
 		await C.Scraps.face_left()
 		await C.Scraps.say("*munch* *munch* *nom* *nom*")
 		C.Scraps.play_animation("chew")
-
+	else: 
+		await C.player.say("Tibs not sure why he need it yet.")
+		# don't like this. Is there a better way to block this action prior to talkingt to scraps.
 
 
 #endregion

@@ -11,19 +11,19 @@ var state: Data = load("res://game/rooms/cheese_room/room_cheese_room.tres")
 # tree but it is not visible
 func _on_room_entered() -> void:
 	await C.Scraps.face_left()
-	if not Globals.got_battery:
-		R.get_hotspot("Socket").disable()
-	elif not Globals.scraps_dead:
-		R.get_hotspot("Socket").enable()
+	if not I.Battery.in_inventory:
+		R.get_prop("Battery").show()
+		R.get_hotspot("Socket").hide()
+	else:
+		R.get_prop("Battery").hide()
+		R.get_hotspot("Socket").show()
 	if Globals.scraps_dead and not Globals.move_scraps:
 		await C.Scraps.play_animation("dead")
 		await C.Scraps.pause_animation()
 	elif Globals.move_scraps:
-		C.Scraps.disable()
-	if Globals.got_battery and not Globals.scraps_dead:
-		R.get_prop("Battery").visible = false
-	elif Globals.scraps_dead:
-		R.get_prop("Battery").visible = true
+		C.Scraps.hide()
+	if Globals.scraps_dead:
+		R.get_prop("Battery").clickable = false
 	if Globals.player_pos == "right":
 		await C.player.teleport_to_hotspot("RightHole")
 		await C.player.face_left()

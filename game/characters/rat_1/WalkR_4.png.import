@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tge7pjf03pen"
-path="res://.godot/imported/T_0.png-7fe78bab8d30a85cb31592a9f6f7b842.ctex"
+uid="uid://do1srp5nhkjr4"
+path="res://.godot/imported/WalkR_4.png-c0e9d607189554be1da3a79eac9ed9af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/inventory_items/glyph_t/T_0.png"
-dest_files=["res://.godot/imported/T_0.png-7fe78bab8d30a85cb31592a9f6f7b842.ctex"]
+source_file="res://game/characters/rat_1/WalkR_4.png"
+dest_files=["res://.godot/imported/WalkR_4.png-c0e9d607189554be1da3a79eac9ed9af.ctex"]
 
 [params]
 

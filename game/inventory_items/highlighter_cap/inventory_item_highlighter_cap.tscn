@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bif7qypbd6xvc"]
+
+[ext_resource type="Script" path="res://game/inventory_items/highlighter_cap/inventory_item_highlighter_cap.gd" id="1_2estc"]
+[ext_resource type="Texture2D" uid="uid://cpnjab500tg2l" path="res://game/inventory_items/highlighter_cap/HighlighterCap_0.png" id="1_y55m5"]
+
+[node name="ItemHighlighterCap" type="TextureRect"]
+texture_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("1_y55m5")
+stretch_mode = 5
+script = ExtResource("1_2estc")
+script_name = "HighlighterCap"
+description = "Highlighter Cap"

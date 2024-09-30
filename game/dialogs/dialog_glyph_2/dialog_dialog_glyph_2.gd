@@ -24,7 +24,7 @@ func _option_selected(opt: PopochiuDialogOption) -> void:
 		'Opt1':
 			await C.Nibbles.say("Sure. What glyph do you want?")
 			var opt2: PopochiuDialogOption = await D.show_inline_dialog([
-				"w.", "t.", "X.","Q."
+				"w.", "a.", "x.","q."
 			]		)
 			match opt2.id:
 				"0":
@@ -33,18 +33,18 @@ func _option_selected(opt: PopochiuDialogOption) -> void:
 					I.GlyphW.add()
 					stop()
 				"1":
-					await C.player.say("t.")
+					await C.player.say("a.")
 					await C.Nibbles.say("Sure thing.")
-					I.GlyphT.add()
+					I.GlyphA.add()
 					stop()
 				"2":
-					await C.player.say("X.")
+					await C.player.say("x.")
 					await C.Nibbles.say("Sure thing.")
 					I.GlyphX.add()
 					Globals.got_glyphX = true
 					stop()
 				"3":
-					await C.player.say("Q.")
+					await C.player.say("q.")
 					await C.Nibbles.say("I would never make such a cursed symbol.")
 		'Opt2':
 			await C.Nibbles.say("Okay, whatever you say.")

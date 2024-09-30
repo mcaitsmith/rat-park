@@ -18,20 +18,16 @@ func _on_room_entered() -> void:
 	elif Globals.player_pos == "left":
 		await C.player.teleport_to_hotspot("LeftHole")
 		await C.player.face_right()
-	if Globals.got_highlighter:
-		R.get_prop("HighlighterTip").hide()
-	#pass
 
 
 # What happens when the room changing transition finishes. At this point the room
 # is visible.
 func _on_room_transition_finished() -> void:
 	# You can use await E.queue([]) to excecute a sequence of instructions
+
 	await C.CultRat1.say("Oooo….Mmmmm…")
 	await C.CultRat2.say("Wwwww….Qqqqqq…")
 	await C.CultRat3.say("Xxxx…Lllll…")
-	#pass
-
 
 # What happens before Popochiu unloads the room.
 # At this point, the screen is black, processing is disabled and all characters

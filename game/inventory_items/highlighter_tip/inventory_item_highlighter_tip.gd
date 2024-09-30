@@ -46,6 +46,13 @@ func _on_discard() -> void:
 	# Replace the call to super() to implement your code. This only
 	# makes the default behavior to happen.
 	super()
-
+	
 
 #endregion
+
+#region Public #####################################################################################
+# You can add here functions triggered by the GUI commands. For example, if your GUI has a command
+# for look_at, you could have the function:
+
+func on_look_at() -> void:
+	await C.Tibs.say("Tibs got yellow.")

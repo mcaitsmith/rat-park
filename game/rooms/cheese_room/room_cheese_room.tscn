@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgqybtwegexrk"]
+[gd_scene load_steps=15 format=3 uid="uid://cgqybtwegexrk"]
 
 [ext_resource type="Script" path="res://game/rooms/cheese_room/room_cheese_room.gd" id="1_v3lny"]
 [ext_resource type="PackedScene" uid="uid://51qw2hd2t7lq" path="res://game/rooms/cheese_room/props/background/prop_background.tscn" id="2_1au4a"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://so1l1g5npkx" path="res://game/rooms/cheese_room/props/electrodes/ElectrodesOn_0.png" id="7_kp084"]
 [ext_resource type="PackedScene" uid="uid://b6yxte863a1kt" path="res://game/rooms/cheese_room/hotspots/cheese/hotspot_cheese.tscn" id="9_7i5rs"]
 [ext_resource type="PackedScene" uid="uid://c00w7og8sngb5" path="res://game/characters/scraps/character_scraps.tscn" id="9_eeh4e"]
+[ext_resource type="PackedScene" uid="uid://bygecm5hij5m2" path="res://game/rooms/cheese_room/props/cheese_with_battery/prop_cheese_with_battery.tscn" id="9_yk4w8"]
 [ext_resource type="PackedScene" uid="uid://bxy3beu1hyjcw" path="res://game/rooms/cheese_room/hotspots/right_hole/hotspot_right_hole.tscn" id="10_6ioki"]
+[ext_resource type="Texture2D" uid="uid://bkmw8bc6hdhyi" path="res://game/rooms/cheese_room/props/cheese_with_battery/CheeseWithBattery_0.png" id="10_uswm3"]
 [ext_resource type="PackedScene" uid="uid://drcxvwsd6vtb5" path="res://game/rooms/cheese_room/hotspots/socket/hotspot_socket.tscn" id="11_gn50k"]
 
 [node name="RoomCheeseRoom" type="Node2D"]
@@ -44,6 +46,13 @@ interaction_polygon_position = Vector2(257, 0)
 [node name="Electrodes" parent="Props" instance=ExtResource("6_c0t0g")]
 position = Vector2(160, 100)
 texture = ExtResource("7_kp084")
+baseline = -106
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="CheeseWithBattery" parent="Props" instance=ExtResource("9_yk4w8")]
+visible = false
+position = Vector2(160, 100)
+texture = ExtResource("10_uswm3")
 baseline = -106
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 

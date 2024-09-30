@@ -1,0 +1,60 @@
+=Bugs
+- inventory UI: Grid seems to be failing at six items or when removing the x. Like when you get all of the letters. There's an empty slot where x was and screw overlays the last item's sprite. Editior bug/missing UI refresh?
+- inventory use item: When you use an inventory item on something it doesn't clear unless you right/left click. PQ does this too in normal two-click system but less aparent 9 verb because the inventory icons don't drag with the cursor. Probably want to check discord for a clever solution but could probably just clear the active inventory item for now after a use item interaction.
+- general: check for face to characters and interactions. Few places where you can end up pointed the wrong way talking or using an item. There is no "Look at" point. Is it based on walk to or sprite?
+- nibbles dialog: says sure when asking for repeat shape ..should make sure not added but also say "what's wrong with the one i made you already???"
+- wheel room: Why isn't on exit working for turning off wheel noise?
+- wheel room: can walk too close too zippy (remove walkable area around rat wheel?) - way to solve this is maybe with second walkable area that gets activated just for skippy
+- main cage: loose screw reappearing in room after reenter
+- main cage: scraps reappears after scientist was supposed to grab him
+- end: after a few seconds delay, the end room should return to the title screen to signify game over
+
+=Post Jam Enhancements
+- Script updataes: (In progress) Get all script updates from Patrick ... also tibs should talk consistently in 3rd person and limited english.
+- Interactions: (In progress) More interactions with hotspots, props, etc. e.g. water bottle, screw
+- Interations: Talking to other rats, giving items, etc. should have more response too. e.g. in stream, player wanted to convince rat in main room to drink more juice in order vs killing scraps
+- Interactions: Do we allow interaction with wires in cheese room? Now the battery just needs to be swapped.
+- Interactions: Customize general fallback responses, e.g. "I don't want to do that" be 3rd person limited english as well
+- Difficulty: Should we keep the block on leaving first room? Making too easy to find screw and goal to kill off rat?
+- Font: Decrease font size in-game or swap with pixel font. Dialogs and roll over texts are getting cropped at edges/no fully on screen.
+- Animation: Loop talk animations while talking (they only last a few moments and stop)
+- Animation: Need to create seperate idle, talk, walk for extra rats. Should not reuse Tibs.
+- Animation: Need to create seperate idle, talk, walk for Skippy. Should not reuse Tibs.
+- Animation: Change idle animations for scraps and nibbles (use talking or new eating animation (art needed)instead of walking?)
+- Usablity: Polygons for rat characters are not flipping with character which make some characters hard to select. Maybe we can set to polygon to use sprite or just make polygon bigger.
+- Usability: Make cult rats chant on first room visit only. Popochiu doesn't support bg text like i was originally suggesting.
+- Usablilty: Wrap opening and other longer scenes in a cut scene that can be skipped with ESC
+- Usability/Dialogs: There should always be a clear exit to the dialog vs the last option being the one to close it. Should always be something like bye, nevermind, etc. 
+- Battery Puzzle: Would be better if we use a seperate item for "super charged battery". 
+- Will give charged battery its own inventory item (which we could animate with electric effect maybe). Mainly this just makes it easier to handle logic and can add unique description, etc.
+- The battery can be "pulled" to pickup or swapped (using battery with battery) at either location.
+- Battery doesn't electricute scraps fully unless both screw puzzle (see below) and charaged battery. Either or is not powerful enough. Will be signposted to let player know they need more power.
+- Screw puzzle: Using screw with cheese will add power electrode power to the cheese. Looking at cheese should have new description that signposts it pointing out that the paper clip currently provodes the charge.
+- Screwdriver puzzle: Using X with highlighter cap creates screwdriver. Inventory item added but needs to be scripted and replace use of X for screw with screwdriver.
+- Cosmetic: Play title animation (few seconds) only when selecting "Start"
+- Cosmetic: Font change in-game to a pixel font?
+- Cosmetic: More rats in first room (at least three besides Tibs)
+- Cosmetic: Make seperate characters for scientists and remove scientist 1/2 from text. (script) Have them addres each other so it's clear they are scientists?
+- Cosmetic: Hand (currently used as scientist), lightbulb, and wheel should be props vs characters... but can rework low priority if other changes
+- Cosmetic: Use different colors for each character's text (use Dan's color pallete)
+- Cosmetic: Use Tibs other animations, idle directions, walkUR, take (apply any time receiving an item)
+- Cosmetic: Extra rats have a start pos and and walk to point? Then change their position on a timer delay to add more life? Would do this in update function.
+- Cosmetic: Camera changes? e.g. when tibs electricuted
+- TBD if nore
+
+=Script Changes (Patrick)
+- "No" missing when rat talks before dying.
+- Rats should comment more about dying rat. Especially if you talk to them after.
+-
+=Art Clean-up (Dan)
+- something up with screw inventory sprite
+? Add up/down face and/or idle animation to the rat extras
+- Add shadows to bgs and characters
+- Lense distortion and 256 color dithering
+- Better title screen
+
+
+S
+Other items to check off:
+
+- walk to scraps when pulling him
