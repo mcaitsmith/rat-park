@@ -17,18 +17,18 @@ func _on_room_set() -> void:
 
 # When the node is clicked
 func _on_click() -> void:
-	E.command_fallback() # do not modify
+	E.command_fallback()
 
 func _on_double_click() -> void:
-	E.command_fallback() # do not modify
+	E.command_fallback()
 
 # When the node is right clicked
 func _on_right_click() -> void:
-	E.command_fallback() # do not modify
+	E.command_fallback()
 
 # When the node is middle clicked
 func _on_middle_click() -> void:
-	E.command_fallback() # do not modify
+	E.command_fallback()
 
 # When the node is clicked and there is an inventory item selected
 func _on_item_used(_item: PopochiuInventoryItem) -> void:
@@ -41,7 +41,7 @@ func _on_item_used(_item: PopochiuInventoryItem) -> void:
 		await C.Lightbulb.pause_animation()
 		Globals.used_highlighter = true
 	else:
-		E.command_fallback() # remember to call for unhandled items
+		E.command_fallback()
 
 
 # Use it to play the idle animation for the character

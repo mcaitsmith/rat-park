@@ -16,5 +16,6 @@ description = "Floor"
 interaction_polygon = [PackedVector2Array(-155, -26.5, 11, -26.5, 1, 16.5, 58.5565, 15.386, 56, -42.5, 111, -44.5, 117, 15.5, 156, 13.5, 146, -24.5, 163, -24.5, 195, 41.5, -199, 44.5)]
 
 [node name="Perimeter" type="NavigationRegion2D" parent="."]
+visible = false
 modulate = Color(0, 1, 0, 1)
 navigation_polygon = SubResource("NavigationPolygon_a80hl")
