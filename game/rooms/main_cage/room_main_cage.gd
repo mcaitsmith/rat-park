@@ -71,7 +71,7 @@ func _on_room_transition_finished() -> void:
 			await C.player.queue_disable(),
 			await C.Hand.queue_walk_to_marker("AboveCage"),
 			await C.Hand.queue_say("Scientist 1: Prepping compound XC-146 into the delivery syringe."),
-			await C.Hand.queue_say("Scientist 2: Restraining specimen, Tibs, for receiving of the compound."),
+			await C.Hand.queue_say("Scientist 2: Restraining specimen, Tibs."),
 			await C.Hand.queue_say("Scientist 1: Preparing to deliver compound."),
 			await C.Hand.queue_say("Scientist 2: What’s that… Hey! Stupid rat is peeing on me!"),
 			await C.Hand.queue_say("Scientist 1: Oh… that is…unfortunate."),
@@ -79,7 +79,8 @@ func _on_room_transition_finished() -> void:
 		])
 		await E.am.play_sound_cue("injection")
 		await E.wait(2.0)
-		await C.Hand.say("Scientist 1: Compound has been…delivered directly into the frontal cortex. We shall check back in three hours to monitor intellectual development.")
+		await C.Hand.say("Scientist 1: Compound has been…delivered directly into the frontal cortex.")
+		await C.Hand.say("Scientist 1: Let's check back in three hours to monitor intellectual development.")
 		await C.Hand.say("Scientist 2: Stupid rat…")
 		await E.queue([
 			await C.Hand.queue_walk_to_marker("PickupPoint"),
@@ -97,7 +98,6 @@ func _on_room_transition_finished() -> void:
 		C.player.get_node("AnimationPlayer").get_animation("talk").track_set_enabled(0,false)
 		C.player.get_node("AnimationPlayer").get_animation("talk").track_set_enabled(1,true)
 		Globals.start = true
-	#pass
 
 
 # What happens before Popochiu unloads the room.

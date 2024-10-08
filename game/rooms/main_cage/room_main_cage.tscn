@@ -62,10 +62,13 @@ interaction_polygon = PackedVector2Array(-80, -101, 74, -99, 75, -53, -79, -54)
 
 [node name="Bottle" parent="Props" instance=ExtResource("5_0kjp0")]
 position = Vector2(160, 100)
+input_pickable = true
 texture = ExtResource("10_bci65")
+clickable = true
 baseline = -100
-walk_to_point = Vector2(-127.754, 4.28706)
-interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+walk_to_point = Vector2(-106.311, 22.3663)
+interaction_polygon = PackedVector2Array(-19, -31, 15, -30, 13, 33, -2, 53, -17, 35)
+interaction_polygon_position = Vector2(-125, -64)
 
 [node name="Screw" parent="Props" instance=ExtResource("11_myuk2")]
 position = Vector2(160, 100)
@@ -73,7 +76,7 @@ input_pickable = true
 texture = ExtResource("12_kx7hs")
 clickable = true
 baseline = -102
-walk_to_point = Vector2(65.1633, 0.428711)
+walk_to_point = Vector2(88.2879, -0.412186)
 interaction_polygon = PackedVector2Array(-12, -12, -1, -12, 0, -4, -10, -4)
 interaction_polygon_position = Vector2(95, -59)
 

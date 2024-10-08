@@ -65,8 +65,9 @@ func _on_linked_item_discarded() -> void:
 #region Public #####################################################################################
 # You can add here functions triggered by the GUI commands. For example, if your GUI has a command
 # for look_at, you could have the function:
-#func on_look_at() -> void:
-	#pass
+func on_look_at() -> void:
+	C.player.face_clicked();
+	C.player.say("Tibs think can get heavy thing.")
 
 
 #endregion

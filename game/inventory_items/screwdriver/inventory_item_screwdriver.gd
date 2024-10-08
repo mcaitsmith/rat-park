@@ -1,8 +1,8 @@
 extends PopochiuInventoryItem
 
-const Data := preload('inventory_item_glyph_t_state.gd')
+const Data := preload('inventory_item_screwdriver_state.gd')
 
-var state: Data = load("res://game/inventory_items/glyph_t/inventory_item_glyph_t.tres")
+var state: Data = load("res://game/inventory_items/screwdriver/inventory_item_screwdriver.tres")
 
 
 #region Virtual ####################################################################################
@@ -49,3 +49,10 @@ func _on_discard() -> void:
 
 
 #endregion
+
+#region Public #####################################################################################
+# You can add here functions triggered by the GUI commands. For example, if your GUI has a command
+# for look_at, you could have the function:
+
+func on_look_at() -> void:
+	await C.Tibs.say("Tibs make contrived tool!")

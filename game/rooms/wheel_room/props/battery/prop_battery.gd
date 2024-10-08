@@ -8,43 +8,26 @@ extends PopochiuProp
 #region Virtual ####################################################################################
 # When the node is clicked
 func _on_click() -> void:
-	# Replace the call to E.command_fallback() to implement your code.
-	#E.command_fallback()
-	# For example, you can make the player character walk to this prop, gaze at it, and then say
-	# something:
-	await C.player.walk_to_clicked()
-	await C.player.face_clicked()
+	E.command_fallback() # must be called for unhandled 9 verbs
 
 func _on_double_click() -> void:
-	# Replace the call to E.command_fallback() with your code.
 	E.command_fallback()
-	# For example, you could make the player instantly do something instead of walking there first
-
 
 # When the node is right clicked
 func _on_right_click() -> void:
-	# Replace the call to E.command_fallback() to implement your code.
 	E.command_fallback()
-	# For example, you can make the player character gaze at this prop and then say something:
-#	await C.player.face_clicked()
-#	await C.player.say("A deck of cards")
-
 
 # When the node is middle clicked
 func _on_middle_click() -> void:
-	# Replace the call to E.command_fallback() to implement your code.
 	E.command_fallback()
-
 
 # When the node is clicked and there is an inventory item selected
 func _on_item_used(_item: PopochiuInventoryItem) -> void:
-	# Replace the call to E.command_fallback() to implement your code.
-	#E.command_fallback()
-	# For example, you can make the player character say something when the Key item is used in this
-	# prop. Note that you have to change the name of the `_item` parameter to `item`.
-	if _item == I.Battery and Globals.got_battery and not Globals.charged_battery:
+	
+	if _item == I.Battery and not Globals.charged_battery:
 		await self.check_battery()
-#		await C.player.say("I can't do that")
+	else:
+		E.command_fallback() # must be called for unhandled items
 
 
 # When an inventory item linked to this Prop (link_to_item) is removed from
@@ -114,8 +97,8 @@ func check_battery() -> void:
 		C.Zippy.get_node("AnimationPlayer").get_animation("talk").track_set_enabled(1,false)
 		C.Zippy.get_node("AnimationPlayer").get_animation("talk").track_set_enabled(0,true)
 		#C.Zippy.play_animation("walk_wheel")
-	elif Globals.got_battery and not Globals.charged_battery:
-		C.player.say("Now to just swipe the metal box…")
+	elif I.Battery.in_inventory && not Globals.charged_battery:
+		C.player.say("Now to just swipe the shocky cylinder…")
 		await E.queue([
 			await R.current.get_prop("Battery").queue_disable(),
 			await C.Lightbulb.queue_play_animation("highlight_off"),
@@ -126,6 +109,8 @@ func check_battery() -> void:
 			await C.Lightbulb.queue_pause_animation()
 		])
 		Globals.charged_battery = true
+	else:
+		C.player.say("Tibs need another battery to swipe this one with.")
 
 
 #endregion

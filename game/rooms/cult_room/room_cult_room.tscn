@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://doxqeluw0l60h" path="res://game/rooms/cult_room/props/highlighter_cap/prop_highlighter_cap.tscn" id="6_4bu7y"]
 [ext_resource type="Texture2D" uid="uid://dlq1iu2ayxfa8" path="res://game/rooms/cult_room/props/highlighter_cap/CultRoom_HighlighterCap_0.png" id="7_1u277"]
 [ext_resource type="PackedScene" uid="uid://khukqe4fp4f1" path="res://game/rooms/cult_room/props/highlighter_tip/prop_highlighter_tip.tscn" id="8_cd5r8"]
-[ext_resource type="Texture2D" uid="uid://csdydqesh7mnl" path="res://game/rooms/cult_room/props/highlighter_tip/CultRoom_HighlighterTip_0.png" id="9_xigpy"]
 [ext_resource type="PackedScene" uid="uid://d10jkwye5qs00" path="res://game/rooms/cult_room/hotspots/left_hole/hotspot_left_hole.tscn" id="11_o0jl7"]
 [ext_resource type="PackedScene" uid="uid://dynrqwv4llcvr" path="res://game/rooms/cult_room/hotspots/right_hole/hotspot_right_hole.tscn" id="12_gwpt1"]
 [ext_resource type="PackedScene" uid="uid://bgl6812tprmx8" path="res://game/rooms/cult_room/hotspots/dictionary/hotspot_dictionary.tscn" id="13_lr67h"]
 [ext_resource type="PackedScene" uid="uid://iddq6rntvsly" path="res://game/characters/cult_rat_1/character_cult_rat_1.tscn" id="14_hlqin"]
+[ext_resource type="PackedScene" uid="uid://bp5dcs2g22da4" path="res://game/rooms/cult_room/hotspots/highlighter/hotspot_highlighter.tscn" id="14_kbhlx"]
 [ext_resource type="PackedScene" uid="uid://dq1kujgn2fhvq" path="res://game/characters/cult_rat_2/character_cult_rat_2.tscn" id="15_dggfv"]
 [ext_resource type="PackedScene" uid="uid://c5mb145cndagj" path="res://game/characters/cult_rat_3/character_cult_rat_3.tscn" id="16_sx823"]
 [ext_resource type="PackedScene" uid="uid://d0r6pguy67f8i" path="res://game/characters/nibbles/character_nibbles.tscn" id="17_n6eiq"]
@@ -45,17 +45,21 @@ baseline = 83
 interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [node name="HighlighterCap" parent="Props" instance=ExtResource("6_4bu7y")]
-position = Vector2(140, 100)
+position = Vector2(160, 100)
+input_pickable = false
 texture = ExtResource("7_1u277")
-baseline = -128
-walk_to_point = Vector2(-36.2649, 22.007)
-interaction_polygon = PackedVector2Array(-12, -9, 9, -11, 74, -11, 75, 0, 9, -2, -12, -4)
+clickable = false
+baseline = 8
+walk_to_point = Vector2(-121.593, 17.0048)
+interaction_polygon = PackedVector2Array(-36, -9, -29, -13, -14, -11, -14, -1, -29, 1, -36, -2)
 interaction_polygon_position = Vector2(-80, 8)
 
 [node name="HighlighterTip" parent="Props" instance=ExtResource("8_cd5r8")]
+visible = false
 position = Vector2(160, 100)
-texture = ExtResource("9_xigpy")
-interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+baseline = 4
+walk_to_point = Vector2(-103.234, 14.4218)
+interaction_polygon = PackedVector2Array(-111, -2, -95, -2, -95, 6, -111, 5)
 
 [node name="Hotspots" type="Node2D" parent="."]
 
@@ -77,6 +81,12 @@ baseline = -131
 walk_to_point = Vector2(97.9654, 16.0043)
 interaction_polygon = PackedVector2Array(-12, -12, 20, 3, 52, -19, 67, -3, 83, 30, 40, 40, 30, 33, 20, 41, -25, 43, -23, 13)
 interaction_polygon_position = Vector2(68, -40.5)
+
+[node name="Highlighter" parent="Hotspots" instance=ExtResource("14_kbhlx")]
+position = Vector2(160, 100)
+walk_to_point = Vector2(-124.796, 16.8751)
+interaction_polygon = PackedVector2Array(-113.544, -4.6, -31.5437, -5.6, -25.5437, 1.4, -31.5437, 8.4, -112.544, 7.4, -119.544, 1.4)
+interaction_polygon_position = Vector2(3.54375, 0.6)
 
 [node name="Regions" type="Node2D" parent="."]
 

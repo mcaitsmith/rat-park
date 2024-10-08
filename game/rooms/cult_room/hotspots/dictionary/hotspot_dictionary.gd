@@ -8,45 +8,22 @@ extends PopochiuHotspot
 #region Virtual ####################################################################################
 # When the node is clicked
 func _on_click() -> void:
-	# Replace the call to E.command_fallback() with your code.
-	#E.command_fallback()
-	# For example, you can make the player character walk to this hotspot, gaze at it, and then say
-	# something:
-	await C.player.walk_to_clicked()
-	await C.player.face_clicked()
-
+	E.command_fallback() # must be called for unhandled 9 verbs
 
 func _on_double_click() -> void:
-	# Replace the call to E.command_fallback() with your code.
 	E.command_fallback()
-	# For example, you could make the player instantly goto another room on an exit hotspot instead
-	# of waiting for the player to walk there.
-#	await R.current = R.NewRoom
-
 
 # When the node is right clicked
 func _on_right_click() -> void:
-	# Replace the call to E.command_fallback() with your code.
 	E.command_fallback()
-	# For example, you can make the player character gaze at this hotspot and then say something:
-#	await C.player.face_clicked()
-#	await C.player.say("A window")
-
 
 # When the node is middle clicked
 func _on_middle_click() -> void:
-	# Replace the call to E.command_fallback() to implement your code.
 	E.command_fallback()
-
 
 # When the node is clicked and there is an inventory item selected
 func _on_item_used(_item: PopochiuInventoryItem) -> void:
-	# Replace the call to E.command_fallback() to implement your code.
-	E.command_fallback()
-	# For example, you can make the player character say something when the Key item is used in this
-	# hotspot. Note that you have to change the name of the `_item` parameter to `item`.
-#	if item == I.Key:
-#		await C.player.say("No can do")
+	E.command_fallback() # must be called for unhandled items
 
 
 #endregion
@@ -63,7 +40,7 @@ func on_use() -> void:
 func check_dict() -> void:
 	await C.player.walk_to_clicked()
 	await C.player.face_clicked()
-	await C.player.say("My head noises tell me these symbols make sounds. And those sounds…")
+	await C.player.say("Head noises tell me these symbols make sounds. And those sounds…")
 	await C.player.say("Mean things?")
 	await C.CultRat1.say("What? Heresy! These are sacred glyphs left behind by the gods.")
 	await C.CultRat2.say("They teach us how to live the life best for us!")

@@ -1,0 +1,111 @@
+[gd_scene load_steps=19 format=3 uid="uid://dsh3pp7epq28n"]
+
+[ext_resource type="Script" path="res://game/rooms/cult_room/room_cult_room.gd" id="1_vae2o"]
+[ext_resource type="PackedScene" uid="uid://cfm1pu0t11yb5" path="res://game/rooms/cult_room/props/background/prop_background.tscn" id="2_x1oku"]
+[ext_resource type="PackedScene" uid="uid://bdl7crebd4vge" path="res://game/rooms/cult_room/walkable_areas/floor/walkable_area_floor.tscn" id="2_xhhgj"]
+[ext_resource type="Texture2D" uid="uid://d0nox773f6lq2" path="res://game/rooms/cult_room/props/background/CultRoom_Back_0.png" id="3_arj6i"]
+[ext_resource type="PackedScene" uid="uid://dshukiupwvqhq" path="res://game/rooms/cult_room/props/chip_piles/prop_chip_piles.tscn" id="4_dc5b1"]
+[ext_resource type="Texture2D" uid="uid://di7rv3hjkrkvp" path="res://game/rooms/cult_room/props/chip_piles/CultRoom_ChipPiles_0.png" id="5_jgjyt"]
+[ext_resource type="PackedScene" uid="uid://doxqeluw0l60h" path="res://game/rooms/cult_room/props/highlighter_cap/prop_highlighter_cap.tscn" id="6_4bu7y"]
+[ext_resource type="Texture2D" uid="uid://dlq1iu2ayxfa8" path="res://game/rooms/cult_room/props/highlighter_cap/CultRoom_HighlighterCap_0.png" id="7_1u277"]
+[ext_resource type="PackedScene" uid="uid://khukqe4fp4f1" path="res://game/rooms/cult_room/props/highlighter_tip/prop_highlighter_tip.tscn" id="8_cd5r8"]
+[ext_resource type="Texture2D" uid="uid://csdydqesh7mnl" path="res://game/rooms/cult_room/props/highlighter_tip/CultRoom_HighlighterTip_0.png" id="9_xigpy"]
+[ext_resource type="PackedScene" uid="uid://d10jkwye5qs00" path="res://game/rooms/cult_room/hotspots/left_hole/hotspot_left_hole.tscn" id="11_o0jl7"]
+[ext_resource type="PackedScene" uid="uid://dynrqwv4llcvr" path="res://game/rooms/cult_room/hotspots/right_hole/hotspot_right_hole.tscn" id="12_gwpt1"]
+[ext_resource type="PackedScene" uid="uid://bgl6812tprmx8" path="res://game/rooms/cult_room/hotspots/dictionary/hotspot_dictionary.tscn" id="13_lr67h"]
+[ext_resource type="PackedScene" uid="uid://iddq6rntvsly" path="res://game/characters/cult_rat_1/character_cult_rat_1.tscn" id="14_hlqin"]
+[ext_resource type="PackedScene" uid="uid://bp5dcs2g22da4" path="res://game/rooms/cult_room/hotspots/highlighter/hotspot_highlighter.tscn" id="14_kbhlx"]
+[ext_resource type="PackedScene" uid="uid://dq1kujgn2fhvq" path="res://game/characters/cult_rat_2/character_cult_rat_2.tscn" id="15_dggfv"]
+[ext_resource type="PackedScene" uid="uid://c5mb145cndagj" path="res://game/characters/cult_rat_3/character_cult_rat_3.tscn" id="16_sx823"]
+[ext_resource type="PackedScene" uid="uid://d0r6pguy67f8i" path="res://game/characters/nibbles/character_nibbles.tscn" id="17_n6eiq"]
+
+[node name="RoomCultRoom" type="Node2D"]
+script = ExtResource("1_vae2o")
+script_name = "CultRoom"
+width = 480
+height = 200
+limit_left = -80.0
+limit_right = 400.0
+popochiu_placeholder = null
+
+[node name="WalkableAreas" type="Node2D" parent="."]
+
+[node name="Floor" parent="WalkableAreas" instance=ExtResource("2_xhhgj")]
+
+[node name="Props" type="Node2D" parent="."]
+
+[node name="Background" parent="Props" instance=ExtResource("2_x1oku")]
+position = Vector2(160, 100)
+texture = ExtResource("3_arj6i")
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="ChipPiles" parent="Props" instance=ExtResource("4_dc5b1")]
+position = Vector2(160, 100)
+texture = ExtResource("5_jgjyt")
+baseline = 83
+interaction_polygon = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[node name="HighlighterCap" parent="Props" instance=ExtResource("6_4bu7y")]
+position = Vector2(160, 100)
+texture = ExtResource("7_1u277")
+baseline = 8
+walk_to_point = Vector2(-103.051, 15.1319)
+interaction_polygon = PackedVector2Array(-36, -9, -29, -13, -14, -11, -14, -1, -29, 1, -36, -2)
+interaction_polygon_position = Vector2(-80, 8)
+
+[node name="HighlighterTip" parent="Props" instance=ExtResource("8_cd5r8")]
+visible = false
+position = Vector2(160, 100)
+texture = ExtResource("9_xigpy")
+baseline = 4
+walk_to_point = Vector2(-103.234, 14.4218)
+interaction_polygon = PackedVector2Array(-111, -2, -95, -2, -95, 6, -111, 5)
+
+[node name="Hotspots" type="Node2D" parent="."]
+
+[node name="LeftHole" parent="Hotspots" instance=ExtResource("11_o0jl7")]
+position = Vector2(-49, 91)
+baseline = -105
+walk_to_point = Vector2(49.9526, 39.7681)
+interaction_polygon = PackedVector2Array(-12, -12, 1, -32, 12, -12, 12, 12, 1, 29, -12, 12)
+
+[node name="RightHole" parent="Hotspots" instance=ExtResource("12_gwpt1")]
+position = Vector2(368, 91)
+baseline = -101
+walk_to_point = Vector2(-46.0728, 38.7982)
+interaction_polygon = PackedVector2Array(-12, -12, -1, -29, 12, -12, 12, 12, 0, 28, -12, 12)
+
+[node name="Dictionary" parent="Hotspots" instance=ExtResource("13_lr67h")]
+position = Vector2(160, 124.5)
+baseline = -131
+walk_to_point = Vector2(97.9654, 16.0043)
+interaction_polygon = PackedVector2Array(-12, -12, 20, 3, 52, -19, 67, -3, 83, 30, 40, 40, 30, 33, 20, 41, -25, 43, -23, 13)
+interaction_polygon_position = Vector2(68, -40.5)
+
+[node name="Highlighter" parent="Hotspots" instance=ExtResource("14_kbhlx")]
+position = Vector2(160, 100)
+walk_to_point = Vector2(-60.6129, 12.6277)
+interaction_polygon = PackedVector2Array(-104.921, -4.74838, -33.9294, -5.78064, -28.5513, 1.44517, -33.9294, 7.63872, -104.921, 7.63872)
+interaction_polygon_position = Vector2(3.54375, 0.6)
+
+[node name="Regions" type="Node2D" parent="."]
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="CharacterCultRat1 *" parent="Characters" instance=ExtResource("14_hlqin")]
+position = Vector2(176, 107)
+walk_to_point = Vector2(62.5621, 42.1931)
+
+[node name="CharacterCultRat2 *" parent="Characters" instance=ExtResource("15_dggfv")]
+position = Vector2(162, 128)
+walk_to_point = Vector2(80.5062, 20.854)
+
+[node name="CharacterCultRat3 *" parent="Characters" instance=ExtResource("16_sx823")]
+position = Vector2(187, 146)
+walk_to_point = Vector2(50.4376, 7.75964)
+
+[node name="CharacterNibbles *" parent="Characters" instance=ExtResource("17_n6eiq")]
+position = Vector2(61, 156)
+walk_to_point = Vector2(-62.0771, -11.6395)
